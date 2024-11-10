@@ -141,11 +141,14 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
   "active": "278fba24457f3c4e",
   "lastOpenFiles": [
+    "/src/content/blog/automating-indus-app-store-uploads-with-github-actions.md",
+    "/src/config.ts",
     "src/assets/images/how-i-become-engineer-cover.avif",
     "tsconfig.json",
     "tailwind.config.cjs",
@@ -156,7 +159,6 @@
     "src/utils/loadGoogleFont.ts",
     "src/utils/getUniqueTags.ts",
     "src/utils/getSortedPosts.ts",
-    "src/utils/getPostsByTag.ts",
     "src/pages/about.md",
     "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
     "src/content/blog/automating-indus-app-store-uploads-with-github-actions.md",
