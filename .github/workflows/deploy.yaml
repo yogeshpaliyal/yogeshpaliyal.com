@@ -1,13 +1,9 @@
 name: Deploy
 
 on:
-  pull_request:
-    types:
-      - opened
-      - edited
-      - synchronize
-      - reopened
-  workflow_call:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ['main']
 
 jobs:
   build:
