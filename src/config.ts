@@ -11,12 +11,7 @@ export const SITE: Site = {
   postPerIndex: 4,
   postPerPage: 3,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  showArchives: false,
-  editPost: {
-    url: "https://github.com/yogeshpaliyal/yogeshpaliyal.github.io/edit/main/src/content/blog",
-    text: "Suggest Changes",
-    appendFilePath: true,
-  },
+  showArchives: false
 };
 
 export const LOCALE = {
