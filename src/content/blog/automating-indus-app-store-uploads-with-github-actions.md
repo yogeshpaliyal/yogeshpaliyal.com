@@ -9,14 +9,12 @@ draft: false
 tags:
   - indus-app-store
   - github-actions
-description:
-  This blog post delves into leveraging GitHub Actions to automate the process of uploading Android App Bundles (AAB) to the Indus App Store.
+description: This blog post delves into leveraging GitHub Actions to automate the process of uploading Android App Bundles (AAB) to the Indus App Store.
 ---
 
 In the realm of software development, automation plays a pivotal role in enhancing efficiency and reducing manual errors. GitHub Actions, a versatile automation tool, empowers developers to automate various workflows, including continuous integration and deployment. This blog post delves into leveraging GitHub Actions to automate the process of uploading Android App Bundles (AAB) to the Indus App Store.
 
 ## Table of contents
-
 
 ## The Problem
 

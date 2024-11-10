@@ -8,22 +8,20 @@ featured: true
 draft: false
 tags:
   - personal
-description:
-  Sharing my journey of becoming a Software Engineer.
+description: Sharing my journey of becoming a Software Engineer.
 ---
-
 
 I had never thought that I would come this far. Since childhood, this was my only goal to write code as a profession. Initially, no one was there to guide me and show me the right way to achieve my goals. But my friends and brothers supported and encouraged me that I can make my career in this field.
 
 ## Table of contents
 
-
 ## How it started
+
 I started to learn about the basics of websites and how I can create my website.
 
 My first website was on [wapka.mobi](http://wapka.mobi)(now shut down), this platform gave the option to create websites without writing the actual code.
 
-Later on, I wanted to learn more about creating websites from scratch, so I started exploring the basics of FTP, shared servers, HTML, CSS, and PHP. 
+Later on, I wanted to learn more about creating websites from scratch, so I started exploring the basics of FTP, shared servers, HTML, CSS, and PHP.
 
 I learned the basics of these languages by trying and building a few basic websites.
 
@@ -40,6 +38,7 @@ There are only a few options available after high school for biology students - 
 So I went ahead for Medical Entrance preparation, but deep down I knew that this was not my cup of tea. Meanwhile, I continued to learn and explore PHP and other technical things side by side.
 
 ## June 2017 (Android Development coaching)
+
 As expected, I didn't performed well in the medical entrance.
 
 My brother encouraged me to follow my passion, So I decided to take a 3-month course for Android Development (without prior knowledge of Java or Kotlin) during my summer vacations.
@@ -52,7 +51,8 @@ During those 3 months of Android training, I learnt the basics of Android and Ko
 
 Then I went for a JAVA course to get a better understanding of Android. The colleagues were super helpful and they taught me how things work internally. Special Thanks, Sachin Rupani & Suraj Vaishnav for helping out.
 
-## 2018 - Present (Real professional journey started) 
+## 2018 - Present (Real professional journey started)
+
 I wanted to validate my knowledge so I went ahead and cleared the Associate Android Developer Certificate.
 
 In these 4 years, I worked on many technologies like Android, Flutter, React Native, iOS and Angular and helped other developers too.
