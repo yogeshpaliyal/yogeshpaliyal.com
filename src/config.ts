@@ -53,15 +53,15 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Mail",
-    href: "mailto:yogeshpaliyal.foss@gmail.com",
+    href: "mailto:yogeshpaliyal.foss+blog@gmail.com",
     linkTitle: `Send an email to ${SITE.title}`,
-    active: false,
+    active: true,
   },
   {
     name: "X",
     href: "https://x.com/yogeshpaliyal",
     linkTitle: `${SITE.title} on X`,
-    active: false,
+    active: true,
   },
   {
     name: "Twitch",
@@ -145,7 +145,7 @@ export const SOCIALS: SocialObjects = [
     name: "Mastodon",
     href: "https://androiddev.social/@yogeshpaliyal",
     linkTitle: `${SITE.title} on Mastodon`,
-    active: false,
+    active: true,
   },
   {
     name: "BlueSky",
