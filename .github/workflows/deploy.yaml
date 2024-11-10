@@ -32,10 +32,10 @@ jobs:
         run: npm run build
         
       - name: "Setup Pages"
-        run: actions/configure-pages@v4
+        uses: actions/configure-pages@v4
 
       - name: "Upload artifact"
-        run: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3
         with: 
           path: './dist'
 
