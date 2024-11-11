@@ -4,6 +4,7 @@
     "cssclasses": "multitext",
     "tags": "tags",
     "modDatetime": "datetime",
-    "pubDatetime": "datetime"
+    "pubDatetime": "datetime",
+    "draft": "text"
   }
 }

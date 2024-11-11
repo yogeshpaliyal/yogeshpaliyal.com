@@ -1,11 +1,10 @@
 ---
 author: Yogesh Paliyal
 pubDatetime: 2024-03-03T00:00:00Z
-modDatetime: 2024-03-03T00:00:00Z
 title: How I became a Software Engineer without a Degree
 slug: how-i-became-a-software-engineer-without-a-degree
 featured: true
-draft: false
+draft: "false"
 tags:
   - personal
 description: Sharing my journey of becoming a Software Engineer.
@@ -49,7 +48,7 @@ Later I got admission into a distance learning college to pursue BCA. I have see
 
 During those 3 months of Android training, I learnt the basics of Android and Kotlin. The coaching institute offered me an internship after the course completion. This was my happiest moment because I was getting closer to my dream job.
 
-Then I went for a JAVA course to get a better understanding of Android. The colleagues were super helpful and they taught me how things work internally. Special Thanks, Sachin Rupani & Suraj Vaishnav for helping out.
+Then I went for a JAVA course to get a better understanding of Android. The colleagues were super helpful and they taught me how things work internally. Special Thanks, [Sachin Rupani](https://www.linkedin.com/in/sachin-rupani-23a872bb) & [Suraj Vaishnav](https://www.linkedin.com/in/suraj-vaishnav) for helping out.
 
 ## 2018 - Present (Real professional journey started)
 
@@ -75,3 +74,16 @@ I've come a long way but still have miles to go.
 Special thanks to all the blogs and Open-Source projects for helping me in my journey.
 
 Thank you, everyone. ♥️
+
+```mermaid
+timeline
+		title My Journey
+		section Before Professional Journey
+		2014-2016 : Highschool
+		June 2016- 2017 : Medical Entrance Preperation
+		July 2017 : Android Development Coaching
+		section Professional Journey
+		2018 : Quest Solutions
+		2019-2021 : GTS Infosoft LLP
+		2022-Present : Flipkart Pvt. ltd.
+```

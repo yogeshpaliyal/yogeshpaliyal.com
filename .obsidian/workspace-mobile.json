@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/blog/sample-post-template.md",
-                "mode": "source",
-                "source": false
+                "file": "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "sample-post-template"
+              "title": "how-i-became-a-software-engineer-without-a-degree"
             }
           }
         ]
@@ -95,7 +95,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "src/content/blog/sample-post-template.md",
+            "file": "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -114,6 +114,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           },
@@ -130,9 +131,19 @@
           "icon": "lucide-list",
           "title": "Outline"
         }
+      },
+      {
+        "id": "fc01686e95c69e36",
+        "type": "leaf",
+        "state": {
+          "type": "mermaid-toolbar-view",
+          "state": {},
+          "icon": "trident-custom",
+          "title": "Mermaid Toolbar"
+        }
       }
     ],
-    "currentTab": 0
+    "currentTab": 3
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -148,6 +159,8 @@
   },
   "active": "278fba24457f3c4e",
   "lastOpenFiles": [
+    "src/content/blog/keypass-release-process.md",
+    "src/content/blog/sample-post-template.md",
     "src/content/blog/rn-android-startup-optimization.md",
     "public/favicon.png",
     "/src/pages/posts/[slug]/index.astro",
@@ -169,7 +182,6 @@
     "src/content/blog/automating-indus-app-store-uploads-with-github-actions.md",
     "src/content/blog/android-fast-networking-with-kotlin-coroutines.md.md",
     "/src/content/blog/android-fast-networking-with-kotlin-coroutines.md",
-    "src/content/blog/sample-post-template.md",
     "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
     "/src/config.ts",
     "/src/content/blog/automating-indus-app-store-uploads-with-github-actions.md",
