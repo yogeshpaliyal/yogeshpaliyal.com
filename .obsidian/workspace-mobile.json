@@ -148,6 +148,16 @@
   },
   "active": "278fba24457f3c4e",
   "lastOpenFiles": [
+    "public/favicon.svg",
+    "src/assets/images/how-i-become-engineer-cover.avif",
+    "public/astropaper-og.jpg",
+    "public/assets/logo.svg",
+    "public/assets/logo.png",
+    "public/assets/forrest-gump-quote.webp",
+    "public/assets/dev.svg",
+    "README.md",
+    "CHANGELOG.md",
+    "AstroPaper-lighthouse-score.svg",
     "src/content/blog/android-fast-networking-with-kotlin-coroutines.md",
     "src/content/blog/automating-indus-app-store-uploads-with-github-actions.md",
     "src/content/blog/android-fast-networking-with-kotlin-coroutines.md.md",
@@ -157,7 +167,6 @@
     "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
     "/src/config.ts",
     "/src/content/blog/automating-indus-app-store-uploads-with-github-actions.md",
-    "src/assets/images/how-i-become-engineer-cover.avif",
     "tsconfig.json",
     "tailwind.config.cjs",
     "src/utils/slugify.ts",
@@ -167,15 +176,6 @@
     "src/utils/loadGoogleFont.ts",
     "src/utils/getUniqueTags.ts",
     "src/utils/getSortedPosts.ts",
-    "src/pages/about.md",
-    "public/favicon.svg",
-    "public/astropaper-og.jpg",
-    "public/assets/logo.svg",
-    "public/assets/logo.png",
-    "public/assets/forrest-gump-quote.webp",
-    "public/assets/dev.svg",
-    "README.md",
-    "CHANGELOG.md",
-    "AstroPaper-lighthouse-score.svg"
+    "src/pages/about.md"
   ]
 }
