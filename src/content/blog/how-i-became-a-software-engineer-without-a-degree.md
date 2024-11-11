@@ -4,7 +4,7 @@ pubDatetime: 2024-03-03T00:00:00Z
 title: How I became a Software Engineer without a Degree
 slug: how-i-became-a-software-engineer-without-a-degree
 featured: true
-draft: "false"
+draft: false
 tags:
   - personal
 description: Sharing my journey of becoming a Software Engineer.

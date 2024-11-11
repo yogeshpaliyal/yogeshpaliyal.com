@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
-                "mode": "preview",
+                "file": "src/content/blog/keypass-release-process.md",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "how-i-became-a-software-engineer-without-a-degree"
+              "title": "keypass-release-process"
             }
           }
         ]
@@ -95,7 +95,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
+            "file": "src/content/blog/keypass-release-process.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
+            "file": "src/content/blog/keypass-release-process.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           },
@@ -159,8 +159,9 @@
   },
   "active": "278fba24457f3c4e",
   "lastOpenFiles": [
-    "src/content/blog/keypass-release-process.md",
     "src/content/blog/sample-post-template.md",
+    "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
+    "src/content/blog/keypass-release-process.md",
     "src/content/blog/rn-android-startup-optimization.md",
     "public/favicon.png",
     "/src/pages/posts/[slug]/index.astro",
@@ -182,7 +183,6 @@
     "src/content/blog/automating-indus-app-store-uploads-with-github-actions.md",
     "src/content/blog/android-fast-networking-with-kotlin-coroutines.md.md",
     "/src/content/blog/android-fast-networking-with-kotlin-coroutines.md",
-    "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
     "/src/config.ts",
     "/src/content/blog/automating-indus-app-store-uploads-with-github-actions.md",
     "tsconfig.json",
