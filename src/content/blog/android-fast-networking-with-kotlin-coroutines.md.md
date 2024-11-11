@@ -33,6 +33,8 @@ In this project, we are using the State Management approach class Resource
 
 The resource is a wrapper class that contains status (Loading, Success, Error), message, Data
 
+<script src="https://gist.github.com/yogeshpaliyal/1c44e55d3852cecdce0a1caf68eb77ce.js"></script>
+
 %[https://gist.github.com/yogeshpaliyal/1c44e55d3852cecdce0a1caf68eb77ce] 
 
 Creating a BaseCaller, every API call will be going through this class, this is the class where the magic happens.
