@@ -1,7 +1,7 @@
 ---
 author: Yogesh Paliyal
-pubDatetime: 2024-11-10T08:59:00
-modDatetime: 2024-11-10T08:59:00
+pubDatetime: 2021-06-28T00:00:00
+modDatetime: 2021-06-28T00:00:00
 title: Android Fast Networking with Kotlin Coroutines
 description: Adding AFN and Kotlin Coroutines to the project
 slug: android-fast-networking-with-kotlin-coroutines
@@ -249,7 +249,6 @@ open class BaseCaller {
 }
 ```
 
-%[https://gist.github.com/yogeshpaliyal/9dd0839cb00349be1e1c88dee2a951cc] 
 
 BaseApiModel is an API structure that is used for all APIs like, change as per requirements
 
