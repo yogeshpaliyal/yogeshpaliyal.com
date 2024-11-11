@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/blog/android-fast-networking-with-kotlin-coroutines.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "android-fast-networking-with-kotlin-coroutines"
+              "title": "README"
             }
           }
         ]
@@ -148,9 +148,9 @@
   },
   "active": "278fba24457f3c4e",
   "lastOpenFiles": [
+    "src/content/blog/android-fast-networking-with-kotlin-coroutines.md",
     "src/content/blog/automating-indus-app-store-uploads-with-github-actions.md",
     "src/content/blog/android-fast-networking-with-kotlin-coroutines.md.md",
-    "src/content/blog/android-fast-networking-with-kotlin-coroutines.md",
     "/src/content/blog/android-fast-networking-with-kotlin-coroutines.md",
     "src/content/blog/rn-android-startup-optimization.md",
     "src/content/blog/adding-new-post.md",
