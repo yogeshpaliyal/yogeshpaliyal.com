@@ -1,7 +1,7 @@
 ---
 author: Yogesh Paliyal
-pubDatetime: 2024-11-11T08:59:00
-modDatetime: 2024-11-11T08:59:00
+pubDatetime: 2024-11-10T08:59:00
+modDatetime: 2024-11-10T08:59:00
 title: Android Fast Networking with Kotlin Coroutines
 description: Adding AFN and Kotlin Coroutines to the project
 slug: android-fast-networking-with-kotlin-coroutines
