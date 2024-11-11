@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/blog/rn-android-startup-optimization.md",
+                "file": "src/content/blog/android-fast-networking-with-kotlin-coroutines.md.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "rn-android-startup-optimization"
+              "title": "android-fast-networking-with-kotlin-coroutines.md"
             }
           }
         ]
@@ -95,7 +95,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "src/content/blog/rn-android-startup-optimization.md",
+            "file": "src/content/blog/adding-new-post.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -149,7 +149,10 @@
   "active": "278fba24457f3c4e",
   "lastOpenFiles": [
     "src/content/blog/automating-indus-app-store-uploads-with-github-actions.md",
+    "src/content/blog/android-fast-networking-with-kotlin-coroutines.md.md",
     "src/content/blog/rn-android-startup-optimization.md",
+    "src/content/blog/adding-new-post.md",
+    "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
     "/src/config.ts",
     "/src/content/blog/automating-indus-app-store-uploads-with-github-actions.md",
     "src/assets/images/how-i-become-engineer-cover.avif",
@@ -163,8 +166,6 @@
     "src/utils/getUniqueTags.ts",
     "src/utils/getSortedPosts.ts",
     "src/pages/about.md",
-    "src/content/blog/how-i-became-a-software-engineer-without-a-degree.md",
-    "src/content/blog/adding-new-post.md",
     "public/favicon.svg",
     "public/astropaper-og.jpg",
     "public/assets/logo.svg",
