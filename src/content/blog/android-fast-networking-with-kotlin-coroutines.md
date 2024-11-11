@@ -33,7 +33,45 @@ In this project, we are using the State Management approach class Resource
 
 The resource is a wrapper class that contains status (Loading, Success, Error), message, Data
 
-<script src="https://gist.github.com/yogeshpaliyal/1c44e55d3852cecdce0a1caf68eb77ce.js"></script>
+```kotlin
+// Resource.kt
+/**
+ * @author Yogesh Paliyal
+ * Created Date : 15 October 2020
+ */
+data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
+
+    companion object {
+
+        fun <T> success(data: T?, message: String?= ""): Resource<T> {
+            return Resource(Status.SUCCESS, data, message)
+        }
+
+        fun <T> create(status: Status,data: T?, message: String?= ""): Resource<T> {
+            return Resource(status, data, message)
+        }
+
+
+        fun <T> error(msg: String?, data: T? = null): Resource<T> {
+            return Resource(Status.ERROR, data, msg)
+        }
+
+        fun <T> loading(data: T? = null): Resource<T> {
+            return Resource(Status.LOADING, data, null)
+        }
+
+    }
+}
+```
+
+```kotlin
+//Status.kt
+enum class Status {
+    SUCCESS,
+    ERROR,
+    LOADING
+}
+```
 
 %[https://gist.github.com/yogeshpaliyal/1c44e55d3852cecdce0a1caf68eb77ce] 
 
