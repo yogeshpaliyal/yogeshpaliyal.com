@@ -1,6 +1,6 @@
 ---
 author: Yogesh Paliyal
-pubDatetime: 2024-03-03T00:00:00Z
+pubDatetime: 2022-10-14T00:00:00Z
 title: How I became a Software Engineer without a Degree
 slug: how-i-became-a-software-engineer-without-a-degree
 featured: true
