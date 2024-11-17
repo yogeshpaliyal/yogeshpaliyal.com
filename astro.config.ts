@@ -58,5 +58,17 @@ export default defineConfig({
     '/firebase-messaging-with-image-in-android-or-android-kotlin-push-notification':'https://yogeshpaliyal.hashnode.dev/firebase-messaging-with-image-in-android-or-android-kotlin-push-notification',
     '/keypass-password-manager':'https://yogeshpaliyal.hashnode.dev/keypass-password-manager',
     '/keypass-privacy-policy':'https://yogeshpaliyal.hashnode.dev/keypass-privacy-policy',
+    '/archive': '/archives',
+    'https://yogeshpaliyal.hashnode.dev/tag/android-app-development':'https://yogeshpaliyal.hashnode.dev/tag/android-app-development',
+    'https://yogeshpaliyal.hashnode.dev/tag/android-development':'https://yogeshpaliyal.hashnode.dev/tag/android-development',
+    'https://yogeshpaliyal.hashnode.dev/tag/data-structures':'https://yogeshpaliyal.hashnode.dev/tag/data-structures',
+    'https://yogeshpaliyal.hashnode.dev/tag/debugging':'https://yogeshpaliyal.hashnode.dev/tag/debugging',
+    'https://yogeshpaliyal.hashnode.dev/tag/android':'/tags/android',
+    'https://yogeshpaliyal.hashnode.dev/tag/beginners': 'https://yogeshpaliyal.hashnode.dev/tag/beginners',
+    'https://yogeshpaliyal.hashnode.dev/tag/recursion':'https://yogeshpaliyal.hashnode.dev/tag/recursion',
+    'https://yogeshpaliyal.hashnode.dev/tag/opensource-inactive': 'https://yogeshpaliyal.hashnode.dev/tag/opensource-inactive',
+    'https://yogeshpaliyal.hashnode.dev/tag/basics':'https://yogeshpaliyal.hashnode.dev/tag/basics',
+    'https://yogeshpaliyal.hashnode.dev/tag/software-engineer': '/tags/software-engineer',
+    'https://yogeshpaliyal.hashnode.dev/tag/keypass': 'https://yogeshpaliyal.hashnode.dev/tag/keypass'
   }
 });
