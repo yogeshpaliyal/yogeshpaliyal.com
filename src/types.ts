@@ -17,6 +17,8 @@ export type Site = {
     text?: string;
     appendFilePath?: boolean;
   };
+  showQuickTips: boolean;
+  showProjects: boolean;
 };
 
 export type SocialObjects = {

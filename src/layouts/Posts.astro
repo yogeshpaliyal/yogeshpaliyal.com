@@ -11,18 +11,21 @@ import type { CollectionEntry } from "astro:content";
 
 export interface Props {
   page: Page<CollectionEntry<"blog">>;
+  title?: string,
+  description?: string,
+  slugBase?: string
 }
 
-const { page } = Astro.props;
+const { page, title, description, slugBase } = Astro.props;
 ---
 
 <Layout title={`Posts | ${SITE.title}`}>
   <Header activeNav="posts" />
-  <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
+  <Main pageTitle={`${!!title ? title : 'Posts' }`} pageDesc={`${!!description ?description : 'All the articles I\'ve posted.'}`}>
     <ul>
       {
         page.data.map(({ data, slug }) => (
-          <Card href={`/posts/${slug}/`} frontmatter={data} />
+          <Card href={`${!!slugBase ? slugBase : '/posts/'}${slug}/`} frontmatter={data} />
         ))
       }
     </ul>

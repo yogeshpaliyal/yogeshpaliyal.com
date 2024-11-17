@@ -11,7 +11,9 @@ export const SITE: Site = {
   postPerIndex: 4,
   postPerPage: 3,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  showArchives: false
+  showArchives: true,
+  showQuickTips: false,
+  showProjects: false  
 };
 
 export const LOCALE = {
