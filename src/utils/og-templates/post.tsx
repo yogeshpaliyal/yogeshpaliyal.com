@@ -88,7 +88,7 @@ export default async (post: CollectionEntry<"blog">) => {
             </span>
 
             <span style={{ overflow: "hidden", fontWeight: "bold" }}>
-              {SITE.title}
+              yogeshpaliyal.com
             </span>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default async (post: CollectionEntry<"blog">) => {
       height: 630,
       embedFont: true,
       fonts: (await loadGoogleFonts(
-        post.data.title + post.data.author + SITE.title + "by"
+        post.data.title + post.data.author + "yogeshpaliyal.com" + "by"
       )) as FontOptions[],
     }
   );
