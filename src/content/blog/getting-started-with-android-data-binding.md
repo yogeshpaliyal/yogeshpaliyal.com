@@ -1,6 +1,6 @@
 ---
 author: Yogesh Paliyal
-pubDatetime: 2022-09-23T00:00:00Z
+pubDatetime: 2019-09-23T00:00:00Z
 title: "Getting Started with Android Data Binding"
 featured: false
 draft: false
