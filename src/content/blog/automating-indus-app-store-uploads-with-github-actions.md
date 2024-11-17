@@ -6,7 +6,6 @@ title: Automating Indus App Store Uploads with GitHub Actions
 slug: automating-indus-app-store-uploads-with-github-actions
 featured: true
 draft: false
-ogImage: https://github.com/user-attachments/assets/5d455567-d315-44f0-89de-de48775e319f
 tags:
   - indus-app-store
   - github-actions
