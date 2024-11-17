@@ -1,2 +1,2 @@
 ## My Personal Blog Site
-https://github.yogeshpaliyal.com
+https://yogeshpaliyal.com
