@@ -5,8 +5,8 @@ import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
-import { addMermaidClass } from "./src/plugins/mermaid"
 import rehypeMermaid from 'rehype-mermaid';
+import rehypeShikiji from 'rehype-shikiji'
 
 
 // https://astro.build/config
@@ -29,12 +29,13 @@ export default defineConfig({
         },
       ]
     ],
-    rehypePlugins: [addMermaidClass, rehypeMermaid],
+    rehypePlugins: [rehypeMermaid, [rehypeShikiji, { themes: { light: "min-light", dark: "night-owl" } }]],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },
       wrap: true,
     },
+    syntaxHighlight: false
   },
   vite: {
     optimizeDeps: {
