@@ -29,7 +29,7 @@ export default defineConfig({
         },
       ]
     ],
-    rehypePlugins: [rehypeMermaid, [rehypeShikiji, { themes: { light: "min-light", dark: "night-owl" } }]],
+    rehypePlugins: [[rehypeMermaid, {colorScheme: 'light', dark: true, strategy: 'img-svg'}], [rehypeShikiji, { themes: { light: "min-light", dark: "night-owl" } }]],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },

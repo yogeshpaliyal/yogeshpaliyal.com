@@ -44,10 +44,11 @@ function reflectPreference() {
       .querySelector("meta[name='theme-color']")
       ?.setAttribute("content", bgColor);
 
-      // Set the background color in <meta color-scheme ... />
-    document
-    .querySelector("meta[name='color-scheme']")
-    ?.setAttribute("content", themeValue);
+
+    // now this script can find and listen for clicks on the control
+    document.querySelectorAll('[id^="mermaid-dark-"]')?.forEach((node) => {
+      node.media = `(prefers-color-scheme: ${themeValue === 'dark' ? 'light': 'dark'})`
+    });
   }
 }
 
