@@ -43,6 +43,11 @@ function reflectPreference() {
     document
       .querySelector("meta[name='theme-color']")
       ?.setAttribute("content", bgColor);
+
+      // Set the background color in <meta color-scheme ... />
+    document
+    .querySelector("meta[name='color-scheme']")
+    ?.setAttribute("content", themeValue);
   }
 }
 
