@@ -23,6 +23,21 @@ function setPreference() {
   reflectPreference();
 }
 
+function changeGiscusTheme () {
+
+  function sendMessage(message) {
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (!iframe) return;
+    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+
+  sendMessage({
+    setConfig: {
+      theme: themeValue
+    }
+  });
+}
+
 function reflectPreference() {
   document.firstElementChild.setAttribute("data-theme", themeValue);
 
@@ -49,6 +64,8 @@ function reflectPreference() {
     document.querySelectorAll('[id^="mermaid-dark-"]')?.forEach((node) => {
       node.media = `(prefers-color-scheme: ${themeValue === 'dark' ? 'light': 'dark'})`
     });
+
+    changeGiscusTheme();
   }
 }
 
