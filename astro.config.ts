@@ -5,6 +5,9 @@ import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
+import { addMermaidClass } from "./src/plugins/mermaid"
+import rehypeMermaid from 'rehype-mermaid';
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,8 +27,9 @@ export default defineConfig({
         {
           test: "Table of contents",
         },
-      ],
+      ]
     ],
+    rehypePlugins: [addMermaidClass, rehypeMermaid],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },
