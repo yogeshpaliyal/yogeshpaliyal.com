@@ -1,4 +1,2 @@
-## My Personal Blog Site
+# My Personal Blog Site
 https://yogeshpaliyal.com
--
--
