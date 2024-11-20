@@ -27,8 +27,15 @@ function changeGiscusTheme () {
 
   function sendMessage(message) {
     const iframe = document.querySelector('iframe.giscus-frame');
-    if (!iframe) return;
-    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    if (!iframe){
+      setTimeout(()=>{
+        const iframe2 = document.querySelector('iframe.giscus-frame');
+        if(!iframe2) return
+        iframe2.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }, 2000)
+    } else {
+      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    }
   }
 
   sendMessage({
@@ -82,6 +89,25 @@ window.onload = () => {
       themeValue = themeValue === "light" ? "dark" : "light";
       setPreference();
     });
+
+
+    // const observer = new MutationObserver((mutations) => {
+    //   mutations.forEach((mutation) => {
+    //     if (mutation.type === 'childList') {
+    //       const iframe = document.querySelector('iframe.giscus-frame');
+    //       if (iframe) {
+    //         // Theme-setting logic
+    //         changeGiscusTheme()
+    //         observer.disconnect(); // Stop observing after the iframe is found
+    //       }
+    //     }
+    //   });
+    // });
+    
+    // // Start observing the body for changes
+    // observer.observe(document.body, { childList: true, subtree: true });
+
+
   }
 
   setThemeFeature();
