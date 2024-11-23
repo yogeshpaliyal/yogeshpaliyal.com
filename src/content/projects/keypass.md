@@ -1,6 +1,6 @@
 ---
-pubDatetime: 2021-06-28T00:00:00
-modDatetime: 2021-06-28T00:00:00
+pubDatetime: 2021-01-31T16:34:20Z
+modDatetime: 2021-01-31T16:34:20Z
 title: KeyPass
 description: Open Source Project & An Offline Password Manager. Store, manage, and take control securely.
 url: https://github.com/yogeshpaliyal/keypass
