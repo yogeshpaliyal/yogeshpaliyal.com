@@ -121,9 +121,9 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Reddit",
-    href: "https://github.com/yogeshpaliyal",
+    href: "https://www.reddit.com/user/paliyalyogesh/",
     linkTitle: `${SITE.title} on Reddit`,
-    active: false,
+    active: true,
   },
   {
     name: "Skype",
