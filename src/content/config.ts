@@ -43,6 +43,7 @@ const projects = defineCollection({
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
       title: z.string(),
+      url: z.string(),
       featured: z.boolean().optional(),
       draft: z.literal("unlisted").or(z.boolean()).optional(),
       tags: z.array(z.string()).default(["others"]),

@@ -1,14 +1,11 @@
 ---
-author: Yogesh Paliyal
 pubDatetime: 2021-06-28T00:00:00
 modDatetime: 2021-06-28T00:00:00
 title: KeyPass
-description: KeyPass is an open source offline password manager for android.
-slug: keypass
+description: Open Source Project & An Offline Password Manager. Store, manage, and take control securely.
+url: https://github.com/yogeshpaliyal/keypass
 tags:
   - android
 draft: false
-featured: true
+featured: false
 ---
-
-KeyPass is an open source offline password manager for android.
