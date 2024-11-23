@@ -17,7 +17,9 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     react(),
-    sitemap(),
+    sitemap({filter: (page) => {
+        return !page.match('(.*)\/projects\/[^\/]+$')
+    },}),
   ],
   markdown: {
     remarkPlugins: [
