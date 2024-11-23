@@ -13,7 +13,7 @@ export const SITE: Site = {
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: true,
   showQuickTips: false,
-  showProjects: false  
+  showProjects: true  
 };
 
 export const LOCALE = {

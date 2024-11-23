@@ -25,7 +25,7 @@ const { page, title, description, slugBase } = Astro.props;
     <ul>
       {
         page.data.map(({ data }) => (
-          <Card href={data.url} frontmatter={data} />
+          <Card href={data.url} frontmatter={data} hideDateTime />
         ))
       }
     </ul>
