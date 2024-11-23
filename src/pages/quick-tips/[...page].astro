@@ -13,4 +13,4 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 ---
 
-<Posts {page} title="Quick Tips" description="Quick Tips and rough notes of mine" slugBase="/quick-tips/"/>
+<Posts {page} activeNav="quick-tips" title="Quick Tips" description="Quick Tips and rough notes of mine" slugBase="/quick-tips/"/>
