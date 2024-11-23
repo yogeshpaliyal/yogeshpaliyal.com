@@ -20,7 +20,7 @@ const { page, title, description, slugBase } = Astro.props;
 ---
 
 <Layout title={`Projects | ${SITE.title}`}>
-  <Header activeNav="posts" />
+  <Header activeNav="projects" />
   <Main pageTitle={`${!!title ? title : 'Posts' }`} pageDesc={`${!!description ?description : 'All the articles I\'ve posted.'}`}>
     <ul>
       {
