@@ -69,7 +69,7 @@ function reflectPreference() {
 
     // now this script can find and listen for clicks on the control
     document.querySelectorAll('[id^="mermaid-dark-"]')?.forEach((node) => {
-      node.media = `(prefers-color-scheme: ${themeValue === 'dark' ? 'light': 'dark'})`
+      node.media = `(prefers-color-scheme: ${themeValue})`
     });
 
     changeGiscusTheme();
