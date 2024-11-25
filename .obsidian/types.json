@@ -5,6 +5,6 @@
     "tags": "tags",
     "modDatetime": "datetime",
     "pubDatetime": "datetime",
-    "draft": "checkbox"
+    "draft": "text"
   }
 }
