@@ -13,4 +13,13 @@ featured: true
 ## 📜 Context 
 The startup time is the core metric in any app, in react-native there is additional overhead of react VM initialisation that increases the startup time of the app.
 
-In React Native app startup time, some portion of VM initialisation time goes in creation of all View Managers
+In React Native app startup time, some portion of VM initialisation time goes in creation of all View Managers.
+
+## 🔨 Implementation
+### Modify Packages
+### enable lazy view managers
+
+## ⚠️Things to keep in mind
+1. We have to implement<> in all the packages that we are passing to our react-native.
+
+## 📒 Conclusions 
