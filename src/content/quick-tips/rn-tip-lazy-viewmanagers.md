@@ -15,11 +15,16 @@ The startup time is the core metric in any app, in react-native there is additio
 
 In React Native app startup time, some portion of VM initialisation time goes in creation of all View Managers.
 
+The more the View Managers you're using more the benefits you will get.
+
 ## 🔨 Implementation
 ### Modify Packages
-### enable lazy view managers
+
+### Enable lazy view managers
 
 ## ⚠️Things to keep in mind
-1. We have to implement<> in all the packages that we are passing to our react-native.
+1. We have to implement <> in all the packages that we are passing to our react-native.
+2. In Js/ts if you are reading the View managers like `UiManager.MyViewManager` then you have to migrate that to `UiManager.getViewManagerConfig("MyViewManager")` else you will get *MyViewManager* as undefined.
+To check if view manager present use `UiManager.hasViewManagerConfig("MyViewManager")` API.
 
 ## 📒 Conclusions 
