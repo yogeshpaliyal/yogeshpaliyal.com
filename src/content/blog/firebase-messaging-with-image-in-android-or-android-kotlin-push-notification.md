@@ -2,8 +2,8 @@
 author: Yogesh Paliyal
 pubDatetime: 2019-10-13T00:00:00Z
 title: "Firebase Messaging with Image in Android | Android Kotlin push notification"
-featured: true
-draft: "unlisted"
+featured: false
+draft: false
 tags: 
 - firebase
 - android-tutorial
