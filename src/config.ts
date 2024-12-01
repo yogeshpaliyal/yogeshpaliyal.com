@@ -6,7 +6,6 @@ export const SITE: Site = {
   profile: "https://yogeshpaliyal.com/",
   desc: "Exploring the world of technology without a degree and spreading the love for open-source development.",
   title: "Yogesh Paliyal",
-  ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 5,
