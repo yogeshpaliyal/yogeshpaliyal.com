@@ -20,9 +20,9 @@ export interface Props {
 const { page, title, description, slugBase, activeNav = "posts" } = Astro.props;
 ---
 
-<Layout title={`${!!title ? title : 'Posts'} | ${SITE.title}`}>
+<Layout title={`${title ? title : 'Posts'} | ${SITE.title}`}>
   <Header activeNav={activeNav} />
-  <Main pageTitle={`${!!title ? title : 'Posts' }`} pageDesc={`${!!description ?description : 'All the articles I\'ve posted.'}`}>
+  <Main pageTitle={`${title ? title : 'Posts' }`} pageDesc={`${description ? description : 'All the articles I\'ve posted.'}`}>
     <ul>
       {
         page.data.map(({ data, slug }) => (

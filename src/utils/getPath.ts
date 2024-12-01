@@ -1,5 +1,6 @@
 
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 const getRelativePath = (data: any, slug: string) => {
     if(data.contentType == 'projects'){
         return data.url
