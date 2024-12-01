@@ -20,6 +20,7 @@ git rm -r --cached .
 git add .
 git commit -m "Drop files from .gitignore"
 ```
+
 You basically remove and re-add all files, but `git add` will ignore the ones in `.gitignore`.
 
 Using the `--cached` option will keep files in your filesystem, so you won't be removing files from your disk.

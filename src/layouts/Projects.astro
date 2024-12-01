@@ -11,8 +11,8 @@ import type { CollectionEntry } from "astro:content";
 
 export interface Props {
   page: Page<CollectionEntry<"projects">>;
-  title?: string,
-  description?: string
+  title?: string;
+  description?: string;
 }
 
 const { page, title, description } = Astro.props;
@@ -20,7 +20,10 @@ const { page, title, description } = Astro.props;
 
 <Layout title={`Projects | ${SITE.title}`}>
   <Header activeNav="projects" />
-  <Main pageTitle={`${!!title ? title : 'Posts' }`} pageDesc={`${!!description ?description : 'All the articles I\'ve posted.'}`}>
+  <Main
+    pageTitle={`${title ? title : "Posts"}`}
+    pageDesc={`${description ? description : "All the articles I've posted."}`}
+  >
     <ul>
       {
         page.data.map(({ data }) => (

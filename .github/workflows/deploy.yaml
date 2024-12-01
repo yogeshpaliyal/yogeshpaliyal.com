@@ -3,7 +3,7 @@ name: Deploy
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
+    branches: ["main"]
 
 # Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
@@ -13,7 +13,7 @@ permissions:
 
 # Allow one concurrent deployment
 concurrency:
-  group: 'pages'
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
@@ -44,16 +44,15 @@ jobs:
 
       - name: "🚀 Build the project"
         run: npm run build
-        
+
       - name: "Setup Pages"
         uses: actions/configure-pages@v4
 
       - name: "Upload artifact"
         uses: actions/upload-pages-artifact@v3
-        with: 
-          path: './dist'
+        with:
+          path: "./dist"
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        

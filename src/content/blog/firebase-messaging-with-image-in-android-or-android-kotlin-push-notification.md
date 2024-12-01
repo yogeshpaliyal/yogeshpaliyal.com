@@ -4,9 +4,9 @@ pubDatetime: 2019-10-13T00:00:00Z
 title: "Firebase Messaging with Image in Android | Android Kotlin push notification"
 featured: false
 draft: false
-tags: 
-- firebase
-- android-tutorial
+tags:
+  - firebase
+  - android-tutorial
 description: "In this post, we are going to learn how to handle notifications with an image from the firebase console"
 ---
 
@@ -15,28 +15,30 @@ In this post, we are going to learn how to handle notifications with an image fr
 
 Here are a few steps I think we can skip.
 
-*   Login/Register to the firebase.
-*   Setup your project in the android studio.
-*   Create a project on the firebase console.
-*   [Add firebase to your project](https://firebase.google.com/docs/android/setup).
+- Login/Register to the firebase.
+- Setup your project in the android studio.
+- Create a project on the firebase console.
+- [Add firebase to your project](https://firebase.google.com/docs/android/setup).
 
-* * *
+---
 
 Add dependency (in “app/build.gradle”)
+
 ```groovy
 implementation 'com.google.firebase:firebase-messaging:20.0.0'
 ```
 
-* * *
+---
 
-Create a class that extends **FirebaseMessangingService** in my case it is “MyFirebaseMessangingService”  
-  
+Create a class that extends **FirebaseMessangingService** in my case it is “MyFirebaseMessangingService”
+
 Your class look like this initially
+
 ```kotlin
-class MyFirebaseMessangingService : FirebaseMessagingService(){ 
+class MyFirebaseMessangingService : FirebaseMessagingService(){
     override fun onNewToken(p0: String) {
         super.onNewToken(p0)
-        
+
     }
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
@@ -53,9 +55,10 @@ This can be updated periodically, reinstall the app, clear data, etc.
 **Q. What happens** **when the app is in the background & how to show notification in that condition?**  
 Ans: Firebase will handle itself and show the notification & on click on that notification it will open the very first activity of your projects like Splash or Dashboard.
 
-* * *
+---
 
 Add Firebase messaging service to **Manifest.xml** inside the application tag.
+
 ```xml
 <service
     android:name=".java.MyFirebaseMessagingService"
@@ -66,7 +69,7 @@ Add Firebase messaging service to **Manifest.xml** inside the application tag.
 </service>
 ```
 
-* * *
+---
 
 Show Notification (first download image to bitmap and then show notification)
 
@@ -104,9 +107,10 @@ private fun downloadImage(notification: RemoteMessage.Notification?) {
 
 **Note:** I used RxJava here for threading, you can use any method you want.
 
-* * *
+---
 
 Show the notification
+
 ```kotlin
 private fun showNotification(notification: RemoteMessage.Notification?, image: Bitmap?) {
 
@@ -164,6 +168,7 @@ private fun showNotification(notification: RemoteMessage.Notification?, image: B
 ```
 
 Here is the whole file code:
+
 ```kotlin
 import android.app.Notification
 import android.app.NotificationChannel

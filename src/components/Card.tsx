@@ -9,7 +9,12 @@ export interface Props {
   hideDateTime?: boolean;
 }
 
-export default function Card({ href, frontmatter, secHeading = true, hideDateTime = false }: Props) {
+export default function Card({
+  href,
+  frontmatter,
+  secHeading = true,
+  hideDateTime = false,
+}: Props) {
   const { title, pubDatetime, modDatetime, description } = frontmatter;
 
   const headerProps = {
@@ -29,7 +34,9 @@ export default function Card({ href, frontmatter, secHeading = true, hideDateTim
           <h3 {...headerProps}>{title}</h3>
         )}
       </a>
-      { !hideDateTime && <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} /> }
+      {!hideDateTime && (
+        <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
+      )}
       <p>{description}</p>
     </li>
   );

@@ -14,7 +14,15 @@ if (!SITE.showArchives) {
   return Astro.redirect("/404");
 }
 
-const posts = [...await getCollection("blog", ({ data }) => !data.draft), ...(SITE.showProjects ? await getCollection("projects", ({ data }) => !data.draft) : []), ...(SITE.showProjects ? await getCollection("quick-tips", ({ data }) => !data.draft) : [])];
+const posts = [
+  ...(await getCollection("blog", ({ data }) => !data.draft)),
+  ...(SITE.showProjects
+    ? await getCollection("projects", ({ data }) => !data.draft)
+    : []),
+  ...(SITE.showProjects
+    ? await getCollection("quick-tips", ({ data }) => !data.draft)
+    : []),
+];
 
 const MonthMap: Record<string, string> = {
   "1": "January",
@@ -61,7 +69,10 @@ const MonthMap: Record<string, string> = {
                   </div>
                   <ul>
                     {monthGroup.map(({ data, slug }) => (
-                      <Card href={`${getRelativePath(data, slug)}`} frontmatter={data} />
+                      <Card
+                        href={`${getRelativePath(data, slug)}`}
+                        frontmatter={data}
+                      />
                     ))}
                   </ul>
                 </div>

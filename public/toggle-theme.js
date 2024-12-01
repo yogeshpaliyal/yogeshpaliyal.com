@@ -23,25 +23,30 @@ function setPreference() {
   reflectPreference();
 }
 
-function changeGiscusTheme () {
-
+function changeGiscusTheme() {
   function sendMessage(message) {
-    const iframe = document.querySelector('iframe.giscus-frame');
-    if (!iframe){
-      setTimeout(()=>{
-        const iframe2 = document.querySelector('iframe.giscus-frame');
-        if(!iframe2) return
-        iframe2.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }, 2000)
+    const iframe = document.querySelector("iframe.giscus-frame");
+    if (!iframe) {
+      setTimeout(() => {
+        const iframe2 = document.querySelector("iframe.giscus-frame");
+        if (!iframe2) return;
+        iframe2.contentWindow.postMessage(
+          { giscus: message },
+          "https://giscus.app"
+        );
+      }, 2000);
     } else {
-      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      iframe.contentWindow.postMessage(
+        { giscus: message },
+        "https://giscus.app"
+      );
     }
   }
 
   sendMessage({
     setConfig: {
-      theme: themeValue
-    }
+      theme: themeValue,
+    },
   });
 }
 
@@ -66,10 +71,9 @@ function reflectPreference() {
       .querySelector("meta[name='theme-color']")
       ?.setAttribute("content", bgColor);
 
-
     // now this script can find and listen for clicks on the control
-    document.querySelectorAll('[id^="mermaid-dark-"]')?.forEach((node) => {
-      node.media = `(prefers-color-scheme: ${themeValue})`
+    document.querySelectorAll('[id^="mermaid-dark-"]')?.forEach(node => {
+      node.media = `(prefers-color-scheme: ${themeValue})`;
     });
 
     changeGiscusTheme();
@@ -90,7 +94,6 @@ window.onload = () => {
       setPreference();
     });
 
-
     // const observer = new MutationObserver((mutations) => {
     //   mutations.forEach((mutation) => {
     //     if (mutation.type === 'childList') {
@@ -103,11 +106,9 @@ window.onload = () => {
     //     }
     //   });
     // });
-    
+
     // // Start observing the body for changes
     // observer.observe(document.body, { childList: true, subtree: true });
-
-
   }
 
   setThemeFeature();

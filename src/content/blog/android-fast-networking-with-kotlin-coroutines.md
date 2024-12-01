@@ -12,6 +12,7 @@ tags:
 draft: false
 featured: true
 ---
+
 Android Fast Networking is a great library for networking I am using since 2016, It has many features that are not available in similar networking libraries.
 
 AFN provides direct support for RxJava but not for Coroutines, so we create by ourself
@@ -86,7 +87,6 @@ class AuthCaller : BaseCaller(){
   }
 }
 ```
-
 
 ```kotlin
 // BaseCaller.kt
@@ -249,15 +249,14 @@ open class BaseCaller {
 }
 ```
 
-
 BaseApiModel is an API structure that is used for all APIs like, change as per requirements
 
 ```json
 {
-  "status" : 200,
-  "message" : "Api hit success",
-  "data" : {
-      "name" : "Yogesh Paliyal"
+  "status": 200,
+  "message": "Api hit success",
+  "data": {
+    "name": "Yogesh Paliyal"
   }
 }
 ```

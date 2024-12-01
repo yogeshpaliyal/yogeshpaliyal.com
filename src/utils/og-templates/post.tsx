@@ -88,7 +88,7 @@ export default async (post: CollectionEntry<"blog" | "quick-tips">) => {
             </span>
 
             <span style={{ overflow: "hidden", fontWeight: "bold" }}>
-            {new URL(SITE.website).hostname}
+              {new URL(SITE.website).hostname}
             </span>
           </div>
         </div>
