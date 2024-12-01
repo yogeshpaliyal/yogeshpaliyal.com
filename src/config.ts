@@ -11,7 +11,7 @@ export const SITE: Site = {
   postPerPage: 5,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: true,
-  showQuickTips: false,
+  showQuickTips: true,
   showProjects: true  
 };
 
