@@ -7,6 +7,7 @@ import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import getPostsByGroupCondition from "@utils/getPostsByGroupCondition";
+import getRelativePath from "@utils/getPath";
 
 // Redirect to 404 page if `showArchives` config is false
 if (!SITE.showArchives) {
@@ -60,7 +61,7 @@ const MonthMap: Record<string, string> = {
                   </div>
                   <ul>
                     {monthGroup.map(({ data, slug }) => (
-                      <Card href={`/posts/${slug}`} frontmatter={data} />
+                      <Card href={`${getRelativePath(data, slug)}`} frontmatter={data} />
                     ))}
                   </ul>
                 </div>

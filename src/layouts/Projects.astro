@@ -12,11 +12,10 @@ import type { CollectionEntry } from "astro:content";
 export interface Props {
   page: Page<CollectionEntry<"projects">>;
   title?: string,
-  description?: string,
-  slugBase?: string
+  description?: string
 }
 
-const { page, title, description, slugBase } = Astro.props;
+const { page, title, description } = Astro.props;
 ---
 
 <Layout title={`Projects | ${SITE.title}`}>

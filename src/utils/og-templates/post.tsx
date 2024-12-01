@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { SITE } from "@config";
 import loadGoogleFonts, { type FontOptions } from "../loadGoogleFont";
 
-export default async (post: CollectionEntry<"blog">) => {
+export default async (post: CollectionEntry<"blog" | "quick-tips">) => {
   return satori(
     <div
       style={{

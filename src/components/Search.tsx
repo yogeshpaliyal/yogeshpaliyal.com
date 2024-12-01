@@ -2,6 +2,7 @@ import Fuse from "fuse.js";
 import { useEffect, useRef, useState, useMemo, type FormEvent } from "react";
 import Card from "@components/Card";
 import type { CollectionEntry } from "astro:content";
+import getRelativePath from "@utils/getPath";
 
 export type SearchItem = {
   title: string;
@@ -109,7 +110,7 @@ export default function SearchBar({ searchList }: Props) {
         {searchResults &&
           searchResults.map(({ item, refIndex }) => (
             <Card
-              href={`/posts/${item.slug}/`}
+              href={`${getRelativePath(item.data, item.slug)}`}
               frontmatter={item.data}
               key={`${refIndex}-${item.slug}`}
             />

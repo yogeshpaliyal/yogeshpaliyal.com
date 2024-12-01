@@ -7,6 +7,7 @@ const blog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
   schema: ({ image }) =>
     z.object({
+      contentType: z.string().default("posts"),
       author: z.string().default(SITE.author),
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
@@ -39,6 +40,7 @@ const projects = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
   schema: ({ image }) =>
     z.object({
+      contentType: z.string().default("projects"),
       author: z.string().default(SITE.author),
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
@@ -72,6 +74,7 @@ const quickTips = defineCollection({
   schema: ({ image }) =>
     z.object({
       author: z.string().default(SITE.author),
+      contentType: z.string().default("quick-tips"),
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
       title: z.string(),
