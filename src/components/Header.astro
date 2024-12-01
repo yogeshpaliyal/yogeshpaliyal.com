@@ -140,11 +140,6 @@ const { activeNav } = Astro.props;
               Posts
             </a>
           </li>
-          <li>
-            <a href="/tags/" class={activeNav === "tags" ? "active" : ""}>
-              Tags
-            </a>
-          </li>
           {SITE.showQuickTips && <li>
             <a href="/quick-tips/" class={activeNav === "quick-tips" ? "active" : ""}>
               Quick Tips
@@ -155,6 +150,11 @@ const { activeNav } = Astro.props;
               Projects
             </a>
           </li>)}
+           <li>
+            <a href="/tags/" class={activeNav === "tags" ? "active" : ""}>
+              Tags
+            </a>
+          </li>
           <li>
             <a href="/about/" class={activeNav === "about" ? "active" : ""}>
               About
