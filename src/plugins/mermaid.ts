@@ -9,7 +9,7 @@ const visitor = (node: any) => {
   const tagNamePre = "pre"
   const classMermaid = dataLanguageMermaid
 
-  /* eslint-disable  constant-binary-expression, valid-typeof */
+  /* eslint-disable  no-constant-binary-expression, valid-typeof */
   const isPreElement = (node: any) => typeof node.type !== undefined && node.type === typeElement
     && node.tagName !== undefined && node.tagName === tagNamePre
     && node.properties !== undefined && node.properties.dataLanguage === dataLanguageMermaid
