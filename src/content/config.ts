@@ -34,7 +34,6 @@ const blog = defineCollection({
     }),
 });
 
-
 const projects = defineCollection({
   type: "content_layer",
   loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),

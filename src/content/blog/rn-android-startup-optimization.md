@@ -16,17 +16,20 @@ For any app the startup time is the most critical time frame, also in React Nati
 
 ## Table of Content
 
-
-## Why To Optimize 
+## Why To Optimize
 
 ## How to Profile
+
 ### Perfetto
+
 ### React Markers
 
-
 ## How we can Optimize
+
 ### Lazy loading of React Packages
+
 #### LazyReactPackage
+
 #### TurboReactPackage
 
 ### Lazy loading of View Managers

@@ -29,7 +29,7 @@ const {
   scrollSmooth = false,
 } = Astro.props;
 
-console.log("ogImage",ogImage ?? SITE.ogImage ?? "og.png", Astro.url.origin)
+console.log("ogImage", ogImage ?? SITE.ogImage ?? "og.png", Astro.url.origin);
 const socialImageURL = new URL(
   ogImage ?? SITE.ogImage ?? "og.png",
   Astro.url.origin
@@ -120,14 +120,17 @@ const structuredData = {
     />
 
     <!-- Start Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-662BK7MF5B"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-662BK7MF5B"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       // eslint-disable-next-line prefer-rest-params
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-662BK7MF5B');
+      gtag("config", "G-662BK7MF5B");
     </script>
     <!-- End Google tag (gtag.js) -->
 
