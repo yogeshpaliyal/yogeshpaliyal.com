@@ -3,14 +3,7 @@ import { LOGO_IMAGE, SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
-export type Navs =
-  | "posts"
-  | "archives"
-  | "tags"
-  | "about"
-  | "search"
-  | "quick-tips"
-  | "projects";
+export type Navs = | "posts" | "archives" | "tags" | "about" | "search" | "quick-tips" | "projects";
 
 export interface Props {
   activeNav?: Navs;
@@ -32,10 +25,7 @@ const { activeNav } = Astro.props;
                 alt={SITE.title}
                 width={LOGO_IMAGE.width}
                 height={LOGO_IMAGE.height}
-              />
-            ) : (
-              SITE.title
-            )
+              />) : (SITE.title)
           }
         </a>
         <ul class="sm:flex hidden">
