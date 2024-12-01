@@ -20,7 +20,13 @@ The more the View Managers you're using more the benefits you will get.
 ## 🔨 Implementation
 ### Modify Packages
 
+Check this example package [MainReactPackage](https://github.com/facebook/react-native/blob/40c194cf47634e2ca803ae1f469f4091aeeadaf0/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/shell/MainReactPackage.kt#L12)
+
 ### Enable lazy view managers
+
+[ReactInstanceManager](https://github.com/facebook/react-native/blob/main/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/ReactInstanceManager.java)
+
+
 
 ## ⚠️Things to keep in mind
 1. We have to implement <> in all the packages that we are passing to our react-native.
