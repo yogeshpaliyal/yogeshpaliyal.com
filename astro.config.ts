@@ -52,6 +52,7 @@ export default defineConfig({
     contentLayer: true,
   },
   redirects: {
+    "/android-fast-networking-with-kotlin-coroutines":"/posts/android-fast-networking-with-kotlin-coroutines",
     "/how-i-became-a-software-engineer-without-a-degree":
       "/posts/how-i-became-a-software-engineer-without-a-degree?utm_source=yogeshpaliyal-old&utm_medium=redirect_url&utm_campaign=redirect_url",
     "/automating-indus-app-store-uploads-with-github-actions":
@@ -86,21 +87,21 @@ export default defineConfig({
       "https://yogeshpaliyal.hashnode.dev/keypass-privacy-policy",
     "/archive":
       "/archives?utm_source=yogeshpaliyal-old&utm_medium=redirect_url&utm_campaign=redirect_url",
-    "https://yogeshpaliyal.hashnode.dev/tag/android-app-development":
+    "/tag/android-app-development":
       "https://yogeshpaliyal.hashnode.dev/tag/android-app-development",
-    "https://yogeshpaliyal.hashnode.dev/tag/android-development":
+    "/tag/android-development":
       "https://yogeshpaliyal.hashnode.dev/tag/android-development",
-    "https://yogeshpaliyal.hashnode.dev/tag/data-structures":
+    "/tag/data-structures":
       "https://yogeshpaliyal.hashnode.dev/tag/data-structures",
-    "https://yogeshpaliyal.hashnode.dev/tag/debugging":
+    "/tag/debugging":
       "https://yogeshpaliyal.hashnode.dev/tag/debugging",
-    "https://yogeshpaliyal.hashnode.dev/tag/android":
+    "/tag/android":
       "/tags/android?utm_source=yogeshpaliyal-old&utm_medium=redirect_url&utm_campaign=redirect_url",
-    "https://yogeshpaliyal.hashnode.dev/tag/beginners":
+    "/tag/beginners":
       "https://yogeshpaliyal.hashnode.dev/tag/beginners",
-    "https://yogeshpaliyal.hashnode.dev/tag/recursion":
+    "/tag/recursion":
       "https://yogeshpaliyal.hashnode.dev/tag/recursion",
-    "https://yogeshpaliyal.hashnode.dev/tag/opensource-inactive":
+    "/tag/opensource-inactive":
       "https://yogeshpaliyal.hashnode.dev/tag/opensource-inactive",
     "https://yogeshpaliyal.hashnode.dev/tag/basics":
       "https://yogeshpaliyal.hashnode.dev/tag/basics",
