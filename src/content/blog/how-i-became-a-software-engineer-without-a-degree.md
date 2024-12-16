@@ -10,6 +10,8 @@ tags:
 description: Sharing my journey of becoming a Software Engineer.
 ---
 
+![my-journey-cover](../../assets/my-journey-cover.jpg)
+
 I had never thought that I would come this far. Since childhood, this was my only goal to write code as a profession. Initially, no one was there to guide me and show me the right way to achieve my goals. But my friends and brothers supported and encouraged me that I can make my career in this field.
 
 ## Table of contents
