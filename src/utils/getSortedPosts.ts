@@ -17,4 +17,15 @@ const getSortedPosts = (
     );
 };
 
+export const getSortedProjects = (
+  projects: CollectionEntry<"projects">[]
+) => {
+  return projects
+    .filter(postFilter)
+    .sort(
+      (a, b) =>
+        (a.data.priority ?? 0) - (b.data.priority ?? 0)
+    );
+};
+
 export default getSortedPosts;

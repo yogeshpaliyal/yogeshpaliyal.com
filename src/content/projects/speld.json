@@ -1,0 +1,17 @@
+{
+    "priority": 3,
+    "id": "speld",
+    "title": "Speld",
+    "description": "PIN View or OTP View for Jetpack compose",
+    "url": "https://github.com/yogeshpaliyal/speld",
+    "tags": [
+        "android",
+        "compose"
+    ],
+    "projectType": "github",
+    "username": "yogeshpaliyal",
+    "repoName": "speld",
+    "draft": false,
+    "featured": true,
+    "pubDatetime": "2022-01-30T12:44:39Z"
+}
