@@ -23,13 +23,20 @@ export default function ProjectStats({ repoName, username }: Props) {
     if (!repoName || !username) return;
 
     fetch(`https://api.github.com/repos/${username}/${repoName}`)
-      .then(res => res.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Something went wrong');
+      })
       .then(data => {
         setLastUpdatedDate(new Date(data.updated_at));
         setPubDatetime(new Date(data.created_at));
         setData(data);
       })
-      .catch(e => console.log(e));
+      .catch((e) => {
+        console.log(repoName, username, e)
+      });
   }, []);
 
   const size = "sm";
