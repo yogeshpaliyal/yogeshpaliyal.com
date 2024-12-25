@@ -1,4 +1,6 @@
 import type { Site, SocialObjects } from "./types";
+import type { GiscusProps } from "@giscus/react";
+
 
 export const SITE: Site = {
   website: "https://yogeshpaliyal.com/", // replace this with your deployed domain
@@ -13,6 +15,19 @@ export const SITE: Site = {
   showArchives: true,
   showQuickTips: true,
   showProjects: true,
+};
+
+export const GISCUS: GiscusProps = {
+  repo: "yogeshpaliyal/yogeshpaliyal.com",
+  repoId: "R_kgDONQlO3w",
+  category: "Comments",
+  categoryId: "DIC_kwDONQlO384CkWBb",
+  mapping: "pathname",
+  reactionsEnabled: "1",
+  emitMetadata: "0",
+  inputPosition: "bottom",
+  lang: "en",
+  loading: "lazy",
 };
 
 export const LOCALE = {

@@ -23,33 +23,6 @@ function setPreference() {
   reflectPreference();
 }
 
-function changeGiscusTheme() {
-  function sendMessage(message) {
-    const iframe = document.querySelector("iframe.giscus-frame");
-    if (!iframe) {
-      setTimeout(() => {
-        const iframe2 = document.querySelector("iframe.giscus-frame");
-        if (!iframe2) return;
-        iframe2.contentWindow.postMessage(
-          { giscus: message },
-          "https://giscus.app"
-        );
-      }, 2000);
-    } else {
-      iframe.contentWindow.postMessage(
-        { giscus: message },
-        "https://giscus.app"
-      );
-    }
-  }
-
-  sendMessage({
-    setConfig: {
-      theme: themeValue,
-    },
-  });
-}
-
 function reflectPreference() {
   document.firstElementChild.setAttribute("data-theme", themeValue);
 
@@ -75,8 +48,6 @@ function reflectPreference() {
     document.querySelectorAll('[id^="mermaid-dark-"]')?.forEach(node => {
       node.media = `(prefers-color-scheme: ${themeValue})`;
     });
-
-    changeGiscusTheme();
   }
 }
 
@@ -94,18 +65,6 @@ window.onload = () => {
       setPreference();
     });
 
-    // const observer = new MutationObserver((mutations) => {
-    //   mutations.forEach((mutation) => {
-    //     if (mutation.type === 'childList') {
-    //       const iframe = document.querySelector('iframe.giscus-frame');
-    //       if (iframe) {
-    //         // Theme-setting logic
-    //         changeGiscusTheme()
-    //         observer.disconnect(); // Stop observing after the iframe is found
-    //       }
-    //     }
-    //   });
-    // });
 
     // // Start observing the body for changes
     // observer.observe(document.body, { childList: true, subtree: true });
