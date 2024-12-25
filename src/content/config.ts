@@ -40,8 +40,8 @@ const projects = defineCollection({
       z.object({
         contentType: z.string().default("projects"),
         author: z.string().default(SITE.author),
-        pubDatetime: z.date().optional().nullable(),
-        modDatetime: z.date().optional().nullable(),
+        pubDatetime: z.coerce.date().optional().nullable(),
+        modDatetime: z.coerce.date().optional().nullable(),
         title: z.string(),
         url: z.string(),
         featured: z.boolean().optional(),
