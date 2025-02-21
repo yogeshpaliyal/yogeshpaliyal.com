@@ -14,13 +14,13 @@ description: "It is a technique to connect Data with your views."
 
 
 
-### What is Data Binding?  
+## What is Data Binding?  
 It is a technique to connect Data with your views.  
 
-### How it works?  
+## How it works?  
 It generates a java file that connects your views with the data.  
 
-### Setting up project for Data Binding  
+## Setting up project for Data Binding  
 *build.gradle(:app)*  
 ```kotlin
 plugins {
@@ -40,7 +40,7 @@ android {
 
 ```
 
-### Getting Started with the code 
+## Getting Started with the code 
 To add data binding wrap your parent view/view group with the `<layout>` tag
 
 `<layout>` tag contains 2 sections `<data>` and your parent view group.  
@@ -67,7 +67,7 @@ Our hierarchy looks like this.
 </layout>
 ```  
 
-#### Setup binding in Activity  
+### Setup binding in Activity  
 ```kotlin
 class MainActivity: AppCompatActivity() {
 
@@ -84,7 +84,7 @@ class MainActivity: AppCompatActivity() {
 ```
 *Note: **ActivityMainBinding** is an auto-generated file, the file name will be based on your XML file, (not the activity or fragment file) *  
 
-#### Setup binding in Fragment  
+### Setup binding in Fragment  
 ```kotlin
 class SampleFragment : Fragment() {
   
@@ -103,7 +103,7 @@ class SampleFragment : Fragment() {
 ```  
 
 
-#### Assign value to XML variables  
+### Assign value to XML variables  
 ```kotlin
 binding.mViewModel = mViewModel
 
@@ -118,7 +118,7 @@ binding.lifecycleOwner = viewLifecycleOwner
 binding.executePendingBindings()
 ```  
 
-#### Handle Variable inside the Data Binding
+### Handle Variable inside the Data Binding
 To use variables  in XML you have to wrap your value inside `@{YOUR-VALUE}`
 ```xml
 <TextView
@@ -128,7 +128,7 @@ To use variables  in XML you have to wrap your value inside `@{YOUR-VALUE}`
 ```
 
 
-#### Handle interface inside the Data Binding
+### Handle interface inside the Data Binding
 ```xml
 <TextView
             android:layout_width="match_parent"
@@ -138,7 +138,7 @@ To use variables  in XML you have to wrap your value inside `@{YOUR-VALUE}`
 *Note: you can also get the reference of current view by  
 `(view) -> mViewModel.yourFunction(view)`*  
 
-#### Default values and Null safety 
+### Default values and Null safety 
 Default value is used to show in the preview  
 ```xml
  android:text="@{mViewModel.name, default =`Default Value` }"
@@ -150,7 +150,7 @@ android:text="@{mViewModel.name ?? `Nullable Value`}"
 ```
 If mViewModel or name is null or not assigned then TextView will show 'Nullable Value'  
 
-#### Resource Reference 
+### Resource Reference 
 Dimen
 ```xml
 android:padding="@{large? @dimen/largePadding : @dimen/smallPadding}"
@@ -164,9 +164,9 @@ android:text="@{@plurals/banana(bananaCount)}"
 *etFirstName is an edit text in the same layout file*
 
 
-#### Passing variables to included layout  
+### Passing variables to included layout  
 
-##### sample_layout.xml
+#### sample_layout.xml
 ```xml
 <layout>
                <data>
@@ -178,7 +178,7 @@ android:text="@{@plurals/banana(bananaCount)}"
 </layout>
 ```
 
-##### main_layout.xml   
+#### main_layout.xml   
 ```xml
 <include
        app:customTitle="@{`Test Title`}"
@@ -188,5 +188,5 @@ android:text="@{@plurals/banana(bananaCount)}"
 *Note: You must provide value in `@{}` if you want to send the value as a variable*
 
 
-Thank you, guys.  
+Thank you, folks.  
 Keep learning, Keep Sharing ❤️
