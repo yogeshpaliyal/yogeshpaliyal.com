@@ -3,7 +3,7 @@ author: Yogesh Paliyal
 pubDatetime: 2021-09-02T15:22:00Z
 title: "Guide to Android Data Binding"
 featured: false
-draft: true
+draft: false
 tags:
   - android
   - data-binding
