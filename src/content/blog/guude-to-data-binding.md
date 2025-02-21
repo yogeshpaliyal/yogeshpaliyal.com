@@ -10,7 +10,7 @@ tags:
 description: "It is a technique to connect Data with your views."
 ---
 
-## Table of Content
+## Table of Contents
 
 ### What is Data Binding?  
 It is a technique to connect Data with your views.  
