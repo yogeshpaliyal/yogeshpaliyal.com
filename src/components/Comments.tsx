@@ -43,6 +43,17 @@ export default function Comments({
     return () => themeButton?.removeEventListener("click", handleClick);
   }, []);
 
+  useEffect(() => {
+    const themeButton = document.querySelector("#theme-btn-mobile");
+    const handleClick = () => {
+      setTheme(prevTheme => (prevTheme === "dark" ? "light" : "dark"));
+    };
+
+    themeButton?.addEventListener("click", handleClick);
+
+    return () => themeButton?.removeEventListener("click", handleClick);
+  }, []);
+
   return (
     <div className="mt-8">
       <Giscus theme={theme === "light" ? lightTheme : darkTheme} {...GISCUS} />

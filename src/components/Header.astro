@@ -87,7 +87,7 @@ const { activeNav } = Astro.props;
             SITE.lightAndDarkMode && (
               <li>
                 <button
-                  id="theme-btn"
+                  id="theme-btn-mobile"
                   class="focus-outline"
                   title="Toggles light & dark"
                   aria-label="auto"
@@ -312,6 +312,13 @@ const { activeNav } = Astro.props;
     @apply p-3 sm:p-1;
   }
   #theme-btn svg {
+    @apply scale-125 hover:rotate-12 sm:scale-100;
+  }
+
+#theme-btn-mobile {
+    @apply p-3 sm:p-1;
+  }
+  #theme-btn-mobile svg {
     @apply scale-125 hover:rotate-12 sm:scale-100;
   }
 
