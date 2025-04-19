@@ -13,13 +13,18 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@astrojs/react": "^4.2.4",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/vite": "^4.0.14",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
     "astro": "^5.5.2",
     "dayjs": "^1.11.13",
     "lodash.kebabcase": "^4.1.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "remark-collapse": "^0.1.2",
     "remark-toc": "^9.0.0",
     "satori": "^0.12.1",

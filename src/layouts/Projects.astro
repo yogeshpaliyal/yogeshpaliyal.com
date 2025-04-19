@@ -26,9 +26,11 @@ const { page, title, description } = Astro.props;
   >
     <ul>
       {
-        page.data.map(({ data }) => (
+        page.data.map(({ data }) => {
+          console.log("@@@@data", data);
+          return (
           <ProjectCard client:load href={data.url} frontmatter={data} hideDateTime />
-        ))
+        )})
       }
     </ul>
   </Main>

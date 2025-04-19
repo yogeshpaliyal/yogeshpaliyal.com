@@ -6,6 +6,7 @@ import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
 import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
+import IconBlueSky from "@/assets/icons/IconBlueSky.svg";
 import { SITE } from "@/config";
 
 export const SOCIALS = [
@@ -32,6 +33,12 @@ export const SOCIALS = [
     href: "mailto:yogeshpaliyal.foss+blog@gmail.com",
     linkTitle: `Send an email to ${SITE.title}`,
     icon: IconMail,
+  },
+  {
+    name: "BlueSky",
+    href: "https://bsky.app/profile/yogeshpaliyal.com",
+    linkTitle: `Connect on BlueSky`,
+    icon: IconBlueSky,
   },
 ] as const;
 

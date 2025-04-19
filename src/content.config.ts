@@ -27,14 +27,17 @@ const blog = defineCollection({
 });
 
 const projects = defineCollection({
-  loader: file(`./src/data/projects/`),
+  loader: file("src/data/projects.json", {
+    parser: (fileContent) => {console.log("@@@@FileContent",fileContent); return JSON.parse(fileContent);},
+  }),
   schema: ({ image }) =>
     z.object({
       author: z.string().default(SITE.author),
       contentType: z.string().default("projects"),
-      pubDatetime: z.date(),
-      modDatetime: z.date().optional().nullable(),
+      pubDatetime: z.coerce.date().optional().nullable(),
+      modDatetime: z.coerce.date().optional().nullable(),
       title: z.string(),
+      url: z.string(),
       featured: z.boolean().optional(),
       draft: z.literal("unlisted").or(z.boolean()).optional(),
       projectType: z.literal("github").default("github"),
@@ -43,6 +46,7 @@ const projects = defineCollection({
       description: z.string(),
       canonicalURL: z.string().optional(),
       hideEditPost: z.boolean().optional(),
+      priority: z.number().default(999).optional(),
       timezone: z.string().optional(),
     }),
 });

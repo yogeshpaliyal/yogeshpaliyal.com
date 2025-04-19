@@ -1,0 +1,83 @@
+[
+    {
+        "priority": 5,
+        "id": "Android-Universal-Recycler-View-Adapter",
+        "title": "Android-Universal-Recycler-View-Adapter",
+        "description": "The Ultimate Adapter for Recycler View. One Adapter for all your needs",
+        "projectType": "github",
+        "username": "yogeshpaliyal",
+        "repoName": "Android-Universal-Recycler-View-Adapter",
+        "url": "https://github.com/yogeshpaliyal/Android-Universal-Recycler-View-Adapter",
+        "tags": [
+        ],
+        "draft": false,
+        "featured": true,
+        "pubDatetime": "2020-01-09T06:55:37Z"
+    },
+    {
+        "priority": 2,
+        "id": "benchmarkify",
+        "title": "Benchmarkify",
+        "description": "Benchmarkify is a web app that helps you visualize and analyze Android macrobenchmark results stored in JSON format.",
+        "url": "https://github.com/yogeshpaliyal/benchmarkify",
+        "tags": [
+            "android"
+        ],
+        "draft": false,
+        "projectType": "github",
+        "username": "yogeshpaliyal",
+        "repoName": "benchmarkify",
+        "featured": true,
+        "pubDatetime": "2024-07-18T13:55:26Z"
+    },
+    {
+        "priority": 1,
+        "id": "keypass",
+        "title": "KeyPass",
+        "description": "Open Source Project & An Offline Password Manager. Store, manage, and take control securely.",
+        "url": "https://github.com/yogeshpaliyal/keypass",
+        "tags": [
+            "android"
+        ],
+        "draft": false,
+        "projectType": "github",
+        "username": "yogeshpaliyal",
+        "repoName": "keypass",
+        "featured": true,
+        "pubDatetime": "2021-01-31T16:34:20Z"
+    },
+    {
+        "priority": 3,
+        "id": "speld",
+        "title": "Speld",
+        "description": "PIN View or OTP View for Jetpack compose",
+        "url": "https://github.com/yogeshpaliyal/speld",
+        "tags": [
+            "android",
+            "compose"
+        ],
+        "projectType": "github",
+        "username": "yogeshpaliyal",
+        "repoName": "speld",
+        "draft": false,
+        "featured": true,
+        "pubDatetime": "2022-01-30T12:44:39Z"
+    },
+    {
+        "priority": 4,
+        "id": "Upload-Indus-AppStore",
+        "title": "Upload-Indus-AppStore",
+        "description": "Upload AAB file to get Indus App store, fetch app versions, get app stats, etc.",
+        "projectType": "github",
+        "username": "yogeshpaliyal",
+        "repoName": "upload-indus-appstore",
+        "url": "https://github.com/yogeshpaliyal/upload-indus-appstore",
+        "tags": [
+            "android",
+            "github-action"
+        ],
+        "draft": false,
+        "featured": true,
+        "pubDatetime": "2024-03-03T10:40:24Z"
+    }
+]

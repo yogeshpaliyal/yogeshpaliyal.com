@@ -11,8 +11,13 @@ import { slugifyStr } from "./slugify";
 export function getPath(
   id: string,
   filePath: string | undefined,
-  includeBase = true
+  includeBase = true,
+  url?: string
 ) {
+  if (url) {
+    console.log("getPath", url);
+    return url;
+  }
   const pathSegments = filePath
     ?.replace(BLOG_PATH, "")
     ?.replace(PROJECTS_PATH, "")
@@ -43,5 +48,6 @@ export function getPath(
     return [basePath, slug].join("/");
   }
 
-  return [basePath, ...pathSegments, slug].join("/");
+  const res = [basePath, ...pathSegments, slug].join("/");
+  console.log("getPath", url, res);
 }

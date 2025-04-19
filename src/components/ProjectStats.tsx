@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FormattedDatetime } from "./Datetime";
+// import { FormattedDatetime } from "./Datetime";
 
 interface Props {
   repoName: string | undefined;
@@ -67,10 +67,10 @@ export default function ProjectStats({ repoName, username }: Props) {
             <span
               className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}
             >
-              <FormattedDatetime
+              {/* <FormattedDatetime
                 pubDatetime={pubDatetime}
                 modDatetime={modDatetime}
-              />
+              /> */}
             </span>
           )}
         </>
