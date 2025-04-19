@@ -6,15 +6,18 @@ import { SITE } from "@/config";
 
 export async function GET() {
   const posts = await getCollection("blog");
-  const sortedPosts = getSortedPosts(posts);
+  const quickTips = await getCollection("quickTips");
+  const projects = await getCollection("projects");
+  const sortedPosts = getSortedPosts([...posts, ...quickTips, ...projects]);
   return rss({
     title: SITE.title,
     description: SITE.desc,
     site: SITE.website,
     items: sortedPosts.map(({ data, id, filePath }) => ({
-      link: getPath(id, filePath),
+      link: data.url ?? getPath(id, filePath),
       title: data.title,
       description: data.description,
+      categories: data.tags,
       pubDate: new Date(data.modDatetime ?? data.pubDatetime),
     })),
   });

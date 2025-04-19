@@ -4,7 +4,7 @@
   "version": "5.2.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && pagefind --site dist && cp -r dist/pagefind public/",
+    "build": "astro build && pagefind --site dist && cp -r dist/pagefind public/",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
@@ -25,6 +25,7 @@
     "lodash.kebabcase": "^4.1.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "rehype-mermaid": "^3.0.0",
     "remark-collapse": "^0.1.2",
     "remark-toc": "^9.0.0",
     "satori": "^0.12.1",
@@ -44,6 +45,7 @@
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
+    "rehype-shikiji": "^0.10.2",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.1"
   }

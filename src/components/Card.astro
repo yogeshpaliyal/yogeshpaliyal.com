@@ -4,7 +4,7 @@ import type { CollectionEntry } from "astro:content";
 import { getPath } from "@/utils/getPath";
 import Datetime from "./Datetime.astro";
 
-export interface Props extends CollectionEntry<"blog"> {
+export interface Props extends CollectionEntry<"blog" | "quickTips"> {
   variant?: "h2" | "h3";
 }
 
