@@ -62,6 +62,12 @@ export const SHARE_LINKS = [
     icon: IconBrandX,
   },
   {
+    name: "BlueSky",
+    href: "https://bsky.app/intent/compose?text=",
+    linkTitle: `Share this post on BlueSky`,
+    icon: IconBlueSky,
+  },
+  {
     name: "Telegram",
     href: "https://t.me/share/url?url=",
     linkTitle: `Share this post via Telegram`,
