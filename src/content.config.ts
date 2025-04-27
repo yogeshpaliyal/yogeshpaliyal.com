@@ -27,9 +27,7 @@ const blog = defineCollection({
 });
 
 const projects = defineCollection({
-  loader: file("src/data/projects.json", {
-    parser: (fileContent) => {console.log("@@@@FileContent",fileContent); return JSON.parse(fileContent);},
-  }),
+  loader: file("src/data/projects.json"),
   schema: ({ image }) =>
     z.object({
       author: z.string().default(SITE.author),
