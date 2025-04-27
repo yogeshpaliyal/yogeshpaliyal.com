@@ -23,6 +23,7 @@
     "astro": "^5.5.2",
     "dayjs": "^1.11.13",
     "lodash.kebabcase": "^4.1.1",
+    "playwright": "1.48.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "rehype-mermaid": "^3.0.0",
