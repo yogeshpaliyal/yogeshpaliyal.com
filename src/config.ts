@@ -15,13 +15,13 @@ export const SITE = {
   showQuickTips: true,
   showProjects: true,
   editPost: {
-    enabled: true,
+    enabled: false,
     text: "Suggest Changes",
-    url: "https://github.com/satnaing/astro-paper/edit/main/",
+    url: "https://github.com/yogeshpaliyal/yogeshpaliyal.com/edit/main/",
   },
   dynamicOgImage: true,
   lang: "en", // html lang code. Set this empty and default will be "en"
-  timezone: "Asia/Bangkok", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  timezone: "Asia/Calcutta", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 } as const;
 
 export const GISCUS: GiscusProps = {
