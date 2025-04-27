@@ -9,7 +9,9 @@ export interface Props {
 }
 
 export async function getStaticPaths() {
-  const posts = await getCollection("quickTips", ({ data }) => !data.draft);
+  const posts = await getCollection("quickTips", 
+  ({ data }) => data.draft === "unlisted" || !data.draft
+  );
   const postResult = posts.map(post => ({
     params: { slug: getPath(post.id, post.filePath, false) },
     props: { post },

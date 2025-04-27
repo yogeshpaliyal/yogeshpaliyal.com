@@ -6,7 +6,7 @@ import { SITE } from "@/config";
 export interface Props {
   hideEditPost?: CollectionEntry<"blog">["data"]["hideEditPost"];
   class?: string;
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<"blog" | "quickTips">;
 }
 
 const { hideEditPost, post, class: className = "" } = Astro.props;
