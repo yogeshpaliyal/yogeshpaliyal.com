@@ -15,6 +15,21 @@
         "pubDatetime": "2020-01-09T06:55:37Z"
     },
     {
+        "priority": 6,
+        "id": "Awesome-Android-Tooling",
+        "title": "Awesome Android Tooling",
+        "description": "A curated list of tools that can be helpful building, testing, and optimizing your Android apps.",
+        "projectType": "github",
+        "username": "yogeshpaliyal",
+        "repoName": "awesome-android-tooling",
+        "url": "https://github.com/yogeshpaliyal/awesome-android-tooling",
+        "tags": [
+        ],
+        "draft": false,
+        "featured": true,
+        "pubDatetime": "2025-05-04T06:55:37Z"
+    },
+    {
         "priority": 2,
         "id": "benchmarkify",
         "title": "Benchmarkify",
