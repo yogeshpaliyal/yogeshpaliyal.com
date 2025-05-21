@@ -46,7 +46,7 @@ val reactInstanceBuilder = ReactInstanceManager.builder()
 
 ## ⚠️ Things to keep in mind
 
-1. We have to implement <> in all the packages that we are passing to our react-native.
+1. We have to implement `ViewManagerOnDemandReactPackage` in all the packages that we are passing to our react-native.
 2. In Js/ts if you are reading the View managers like `UiManager.MyViewManager` then you have to migrate that to `UiManager.getViewManagerConfig("MyViewManager")` else you will get _MyViewManager_ as undefined.
    To check if view manager present use `UiManager.hasViewManagerConfig("MyViewManager")` API.
 
