@@ -1,6 +1,6 @@
 ---
 author: Yogesh Paliyal
-pubDatetime: 2025-07-30T00:00:00
+pubDatetime: 2025-07-29T00:00:00
 title: Boost Your ADB Deeplink Workflow
 description: Tired of manually managing Android deeplinks? Learn how to streamline your ADB workflow and quickly launch deeplinks directly from your terminal
 slug: adb-manage-deeplinks
