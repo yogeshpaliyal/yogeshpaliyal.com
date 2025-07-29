@@ -1,5 +1,19 @@
 [
     {
+        "priority": 2,
+        "id": "Deepr",
+        "title": "Deepr 🔗 Deeplink manager",
+        "description": "Deepr is a native Android application designed to streamline the management and testing of deeplinks. It provides a simple and efficient way to store, organize, and launch deeplinks, making it an essential tool for developers and testers.",
+        "projectType": "github",
+        "username": "yogeshpaliyal",
+        "repoName": "Deepr",
+        "url": "https://github.com/yogeshpaliyal/Deepr",
+        "tags": [
+        ],
+        "draft": false,
+        "featured": true,
+        "pubDatetime": "2025-07-25T06:55:37Z"
+    },{
         "priority": 5,
         "id": "Android-Universal-Recycler-View-Adapter",
         "title": "Android-Universal-Recycler-View-Adapter",
