@@ -13,6 +13,7 @@ import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import { SITE } from "@/config";
+import Comments from "@/components/Comments.astro";
 
 export interface Props {
   post: CollectionEntry<"blog" | "quickTips">;
@@ -126,6 +127,8 @@ const nextPost =
         <span>Back to Top</span>
       </button>
     </div>
+
+    <Comments  />
 
     <hr class="my-6 border-dashed" />
 
