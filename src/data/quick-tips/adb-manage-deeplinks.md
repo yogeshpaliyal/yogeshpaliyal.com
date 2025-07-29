@@ -1,25 +1,30 @@
 ---
 author: Yogesh Paliyal
 pubDatetime: 2025-07-28T00:00:00
-title: "Manage ADB Depplinks using terminal"
-description: Manage ADB Depplinks using terminal
+title: "Boost Your ADB Deeplink Workflow"
+description: Tired of manually managing Android deeplinks? Learn how to streamline your ADB workflow and quickly launch deeplinks directly from your terminal
 slug: adb-manage-deeplinks
 tags:
   - adb
   - deeplinks
-draft: true
+draft: false
 featured: true
 ---
 
 ## 📜 Context
-Have you ever faced the issue to keep all the deeplinks handy?
+Deeplinks are essential for navigating within Android applications, but managing them can be cumbersome, especially when dealing with a long list.  
+This quick tip will help you manage your ADB deeplinks from the terminal.  
+This solution leverages [fzf](https://github.com/junegunn/fzf), a powerful command-line fuzzy finder, to make deeplink selection intuitive.
 
+## Solution
+1. Install **fzf** (Ignore this if you already have it installed)
+   - For MacOS, you can use Homebrew:
+     ```shell
+     brew install fzf
+     ```
+   - For Linux, you can follow the instructions on the fzf GitHub page.
 
-## Prequisites
-1. Install [fzf](https://github.com/junegunn/fzf)
-
-## Integrate
-1. Copy the below code to `.zshrc` at the end.
+2. Add the code below to the end of your `.zshrc` file. Use the command `vim ~/.zshrc` to open the file in your terminal.
 ```shell
 adbl() {
     # Check if fzf is installed
@@ -68,8 +73,34 @@ adbl() {
 }
 ```
 
+3. Reload your terminal or run `source ~/.zshrc` to apply the changes.
 
+### Usage
+#### Inline Usage
+You can now use the `adbl` command to manage your ADB deeplinks:
+```shell
+adbl <your_deeplink>
+```
+This command executes the provided deeplink and saves it to a history file for future use.
+![adb-manage-deeplink-1.png](../../assets/adb-manage-deeplink-1.png)
 
-## Future Plans
-1. Handle multiple connected device.
-2. 
+#### Interactive Usage
+If you run `adbl` without any arguments, it will show a list of previously used deeplinks using `fzf`, allowing you to select one or type a new one.
+![adb-manage-deeplink.gif](../../assets/adb-manage-deeplink.gif)
+
+If you select a deeplink, it will internally execute this command:   
+_**adb shell am start -W -a android.intent.action.VIEW -d "<selected_deeplink>"**_
+
+## ⚠️ Things to keep in mind
+1. Ensure that you have `adb` installed and your device is connected.
+2. The history file is stored at `~/.adbl_history`, and you can view or edit it if needed.
+3. If you want to clear the history, you can simply delete the `~/.adbl_history` file.
+4. If you want to use this command in a different shell (like `bash`), you may need to adjust the syntax accordingly.
+5. If you are connecting a **multiple android devices** you can refer to this blog post [here](https://medium.com/@theapache64/adb-say-bye-to-multi-device-error-240ba10777a2) by [theApache64](https://github.com/theapache64).
+
+## Bonus
+If you want to manage your deeplinks in an Android **device**, you can use [Deepr](https://github.com/yogeshpaliyal/Deepr)
+
+## 📒 Conclusions
+By using this command, you can easily manage and execute ADB deeplinks directly from your terminal, making it more efficient to test and navigate within your Android applications.
+
