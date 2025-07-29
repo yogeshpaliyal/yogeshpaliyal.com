@@ -1,21 +1,68 @@
-<script>
+<script is:inline>
+    function initializeGiscus() {
+        // Remove existing giscus if it exists
+        const existingGiscus = document.querySelector('.giscus, iframe.giscus-frame');
+        if (existingGiscus) {
+            existingGiscus.remove();
+        }
+
+        // Remove existing script
+        const existingScript = document.getElementById('giscusComments');
+        if (existingScript && existingScript.tagName === 'SCRIPT') {
+            existingScript.remove();
+        }
+
+        // Create new script
+        const script = document.createElement('script');
+        script.id = 'giscusComments';
+        script.src = 'https://giscus.app/client.js';
+        script.setAttribute('data-repo', 'yogeshpaliyal/yogeshpaliyal.com');
+        script.setAttribute('data-repo-id', 'R_kgDONQlO3w');
+        script.setAttribute('data-category', 'Comments');
+        script.setAttribute('data-category-id', 'DIC_kwDONQlO384CkWBb');
+        script.setAttribute('data-mapping', 'pathname');
+        script.setAttribute('data-strict', '0');
+        script.setAttribute('data-reactions-enabled', '1');
+        script.setAttribute('data-emit-metadata', '0');
+        script.setAttribute('data-input-position', 'bottom');
+        script.setAttribute('data-lang', 'en');
+        script.setAttribute('data-loading', 'lazy');
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
+
+        // Set theme based on current theme
+        const theme = document.documentElement.getAttribute('data-theme');
+        const giscusTheme = theme === 'light' ? 'light' : 'noborder_gray';
+        script.setAttribute('data-theme', giscusTheme);
+
+        // Append script to container
+        const container = document.getElementById('giscus-container');
+        if (container) {
+            container.appendChild(script);
+        }
+    }
+
     function updateGiscusTheme() {
         const theme = document.documentElement.getAttribute('data-theme');
         const giscusTheme = theme === 'light' ? 'light' : 'noborder_gray';
-        document.getElementById('giscusComments')?.setAttribute('data-theme', giscusTheme);
 
-        const iframe = document.querySelector('iframe.giscus-frame') as HTMLIFrameElement;
+        const iframe = document.querySelector('iframe.giscus-frame');
         if (!iframe) return;
+        
         const themeMsg = {
             setConfig: {
                 theme: giscusTheme,
-                reactionsEnabled: false,
+                reactionsEnabled: true,
             }
         }
         iframe.contentWindow?.postMessage({ giscus: themeMsg}, 'https://giscus.app');
     }
 
-    updateGiscusTheme();
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', initializeGiscus);
+    
+    // Re-initialize on navigation (for SPAs)
+    document.addEventListener('astro:page-load', initializeGiscus);
 
     // Watch for theme changes
     const observer = new MutationObserver((mutations) => {
@@ -23,35 +70,16 @@
             if (mutation.attributeName === 'data-theme') {
                 updateGiscusTheme();
             }
-        }
-    );
-});
+        });
+    });
 
-observer.observe(document.documentElement, {
+    observer.observe(document.documentElement, {
         attributes: true,
         attributeFilter: ['data-theme']
-});
-
+    });
 </script>
 
 
 <section class="mx-auto mt-12">
-  <script
-   id="giscusComments"
-    src="https://giscus.app/client.js"
-    data-repo="yogeshpaliyal/yogeshpaliyal.com"
-    data-repo-id="R_kgDONQlO3w"
-    data-category="Comments"
-    data-category-id="DIC_kwDONQlO384CkWBb"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="noborder_gray"
-    data-lang="en"
-    data-loading="lazy"
-    crossorigin="anonymous"
-    async
-  ></script>
+  <div id="giscus-container"></div>
 </section>
