@@ -1,7 +1,7 @@
 import type { CollectionEntry } from "astro:content";
 import postFilter from "./postFilter";
 
-const getSortedPosts = (posts: CollectionEntry<"blog" | "quickTips">[]) => {
+const getSortedPosts = (posts: CollectionEntry<"blog">[]) => {
   return posts
     .filter(postFilter)
     .sort(
@@ -18,10 +18,7 @@ const getSortedPosts = (posts: CollectionEntry<"blog" | "quickTips">[]) => {
 export const getSortedProjects = (posts: CollectionEntry<"projects">[]) => {
   return posts
     .filter(postFilter)
-    .sort(
-      (a, b) =>
-        (a.data.priority ?? 0) - (b.data.priority ?? 0)
-    );
+    .sort((a, b) => (a.data.priority ?? 0) - (b.data.priority ?? 0));
 };
 
 export default getSortedPosts;

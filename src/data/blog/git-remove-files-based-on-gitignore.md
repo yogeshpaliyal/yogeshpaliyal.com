@@ -7,6 +7,7 @@ description: Sometimes we want to remove the files from git that is already bein
 slug: git-remove-files-based-on-gitignore
 tags:
   - git
+  - quick-tips
 draft: false
 featured: true
 ---

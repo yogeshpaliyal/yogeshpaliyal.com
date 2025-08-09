@@ -1,4 +1,4 @@
-import type socialIcons from "@assets/socialIcons";
+import type socialIcons from "@/assets/socialIcons";
 
 export type Site = {
   website: string;
@@ -17,7 +17,6 @@ export type Site = {
     text?: string;
     appendFilePath?: boolean;
   };
-  showQuickTips: boolean;
   showProjects: boolean;
 };
 

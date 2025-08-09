@@ -18,9 +18,6 @@ const posts = [
   ...(SITE.showProjects
     ? await getCollection("projects", ({ data }) => !data.draft)
     : []),
-  ...(SITE.showQuickTips
-    ? await getCollection("quickTips", ({ data }) => !data.draft)
-    : []),
 ];
 
 const months = [
