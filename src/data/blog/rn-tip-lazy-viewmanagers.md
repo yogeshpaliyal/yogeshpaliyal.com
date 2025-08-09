@@ -8,6 +8,7 @@ tags:
   - react-native
   - react-native-optimisation
   - react-native-startup
+  - quick-tips
 draft: false
 featured: true
 ---

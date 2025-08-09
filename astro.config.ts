@@ -9,17 +9,25 @@ import react from "@astrojs/react";
 import rehypeMermaid from "rehype-mermaid";
 import rehypeShikiji from "rehype-shikiji";
 
-
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  integrations: [sitemap({
-    filter: page => SITE.showArchives || !page.endsWith("/archives"),
-  }), react()],
+  integrations: [
+    sitemap({
+      filter: page => SITE.showArchives || !page.endsWith("/archives"),
+    }),
+    react(),
+  ],
   markdown: {
     remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
     syntaxHighlight: false,
-    rehypePlugins:[[rehypeMermaid, { colorScheme: "light", dark: true, strategy: "img-svg" }], [rehypeShikiji, { themes: { light: "min-light", dark: "night-owl" } }]],
+    rehypePlugins: [
+      [
+        rehypeMermaid,
+        { colorScheme: "light", dark: true, strategy: "img-svg" },
+      ],
+      [rehypeShikiji, { themes: { light: "min-light", dark: "night-owl" } }],
+    ],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },
@@ -43,7 +51,12 @@ export default defineConfig({
     preserveScriptOrder: true,
   },
   redirects: {
-    "/android-fast-networking-with-kotlin-coroutines": "/posts/android-fast-networking-with-kotlin-coroutines",
+    "/quick-tips/git-remove-files-based-on-gitignore":
+      "/posts/git-remove-files-based-on-gitignore",
+    "/quick-tips/rn-tip-lazy-viewmanagers-in-android":
+      "/posts/rn-tip-lazy-viewmanagers-in-android",
+    "/android-fast-networking-with-kotlin-coroutines":
+      "/posts/android-fast-networking-with-kotlin-coroutines",
     "/how-i-became-a-software-engineer-without-a-degree":
       "/posts/how-i-became-a-software-engineer-without-a-degree?utm_source=yogeshpaliyal-old&utm_medium=redirect_url&utm_campaign=redirect_url",
     "/automating-indus-app-store-uploads-with-github-actions":
@@ -84,14 +97,11 @@ export default defineConfig({
       "https://yogeshpaliyal.hashnode.dev/tag/android-development",
     "/tag/data-structures":
       "https://yogeshpaliyal.hashnode.dev/tag/data-structures",
-    "/tag/debugging":
-      "https://yogeshpaliyal.hashnode.dev/tag/debugging",
+    "/tag/debugging": "https://yogeshpaliyal.hashnode.dev/tag/debugging",
     "/tag/android":
       "/tags/android?utm_source=yogeshpaliyal-old&utm_medium=redirect_url&utm_campaign=redirect_url",
-    "/tag/beginners":
-      "https://yogeshpaliyal.hashnode.dev/tag/beginners",
-    "/tag/recursion":
-      "https://yogeshpaliyal.hashnode.dev/tag/recursion",
+    "/tag/beginners": "https://yogeshpaliyal.hashnode.dev/tag/beginners",
+    "/tag/recursion": "https://yogeshpaliyal.hashnode.dev/tag/recursion",
     "/tag/opensource-inactive":
       "https://yogeshpaliyal.hashnode.dev/tag/opensource-inactive",
     "https://yogeshpaliyal.hashnode.dev/tag/basics":

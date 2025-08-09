@@ -1,9 +1,9 @@
 import satori from "satori";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@/config";
-import loadGoogleFonts, { type FontOptions } from "../loadGoogleFont";
+import loadGoogleFonts from "../loadGoogleFont";
 
-export default async (post: CollectionEntry<"blog" | "quickTips">) => {
+export default async (post: CollectionEntry<"blog">) => {
   return satori(
     <div
       style={{
@@ -98,9 +98,9 @@ export default async (post: CollectionEntry<"blog" | "quickTips">) => {
       width: 1200,
       height: 630,
       embedFont: true,
-      fonts: (await loadGoogleFonts(
+      fonts: await loadGoogleFonts(
         post.data.title + post.data.author + SITE.website + "by"
-      )) as FontOptions[],
+      ),
     }
   );
 };

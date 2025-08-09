@@ -1,3 +1,5 @@
+import type { Font, FontStyle, FontWeight } from "satori";
+
 async function loadGoogleFont(
   font: string,
   text: string,
@@ -29,12 +31,13 @@ async function loadGoogleFont(
   return res.arrayBuffer();
 }
 
-async function loadGoogleFonts(
-  text: string
-): Promise<
-  Array<{ name: string; data: ArrayBuffer; weight: number; style: string }>
-> {
-  const fontsConfig = [
+async function loadGoogleFonts(text: string): Promise<Array<Font>> {
+  const fontsConfig: {
+    name: string;
+    font: string;
+    weight: FontWeight;
+    style: FontStyle;
+  }[] = [
     {
       name: "IBM Plex Mono",
       font: "IBM+Plex+Mono",
@@ -45,7 +48,7 @@ async function loadGoogleFonts(
       name: "IBM Plex Mono",
       font: "IBM+Plex+Mono",
       weight: 700,
-      style: "bold",
+      style: "italic",
     },
   ];
 
