@@ -10,7 +10,7 @@ tags:
   - networking
   - kotlin-coroutines
 draft: false
-featured: true
+featured: false
 ---
 
 Android Fast Networking is a great library for networking I am using since 2016, It has many features that are not available in similar networking libraries.

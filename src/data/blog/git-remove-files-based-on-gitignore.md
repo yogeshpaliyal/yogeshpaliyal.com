@@ -9,7 +9,7 @@ tags:
   - git
   - quick-tips
 draft: false
-featured: true
+featured: false
 ---
 
 Sometimes we want to remove the files from git that is already being pushed. but we don't want to remove it from our local system.

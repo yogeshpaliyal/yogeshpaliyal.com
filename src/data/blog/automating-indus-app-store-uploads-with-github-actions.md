@@ -4,7 +4,7 @@ pubDatetime: 2024-03-03T00:00:00Z
 modDatetime: 2024-03-03T13:00:00
 title: Automating Indus App Store Uploads with GitHub Actions
 slug: automating-indus-app-store-uploads-with-github-actions
-featured: true
+featured: false
 draft: false
 tags:
   - indus-app-store

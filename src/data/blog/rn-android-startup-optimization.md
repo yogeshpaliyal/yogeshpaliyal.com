@@ -1,7 +1,7 @@
 ---
 author: Yogesh Paliyal
-draft: "unlisted"
-featured: true
+draft: unlisted
+featured: false
 tags:
   - react-native
   - optimization

@@ -10,7 +10,7 @@ tags:
   - react-native-startup
   - quick-tips
 draft: false
-featured: true
+featured: false
 ---
 
 ## 📜 Context
