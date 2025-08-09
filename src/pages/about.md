@@ -7,7 +7,7 @@ I am Yogesh Paliyal a software engineer from Jodhpur, Rajasthan, India.
 Currently working at [Flipkart](https://flipkart.com/) as SDE-II.
 
 <div>
-  <img src="/dev.png" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
+  <img src="../assets/about-cover.png" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
 </div>
 
 ## Table of content
