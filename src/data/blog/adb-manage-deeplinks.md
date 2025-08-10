@@ -16,6 +16,7 @@ Deeplinks are essential for navigating within Android applications, but managing
 This quick tip will help you manage your ADB deeplinks from the terminal.  
 This solution leverages [fzf](https://github.com/junegunn/fzf), a powerful command-line fuzzy finder, to make deeplink selection intuitive.
 
+## Table of Content
 ## Solution
 1. Install **fzf** (Ignore this if you already have it installed)
    - For MacOS, you can use Homebrew:
