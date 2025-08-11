@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/data/blog/adb-manage-deeplinks.md",
+                "file": "src/data/blog/rn-android-startup-optimization.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "adb-manage-deeplinks"
+              "title": "rn-android-startup-optimization"
             },
             "group": "3e56874849237a47"
           }
@@ -34,12 +34,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/data/blog/adb-manage-deeplinks.md",
+                "file": "src/data/blog/rn-android-startup-optimization.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "adb-manage-deeplinks"
+              "title": "rn-android-startup-optimization"
             },
             "group": "3e56874849237a47"
           }
@@ -171,8 +171,10 @@
   },
   "active": "dd1124609097c759",
   "lastOpenFiles": [
-    "src/data/blog/rn-android-startup-optimization.md",
+    "/src/config.ts",
+    "/src",
     "src/data/blog/adb-manage-deeplinks.md",
+    "src/data/blog/rn-android-startup-optimization.md",
     "_templates/sample-post-template.md",
     "README.md",
     "src/data/blog/Untitled.md",
@@ -183,7 +185,6 @@
     "/src/assets/about-cover.png",
     "src/assets/about-cover.png",
     "/src/assets",
-    "/src",
     "/src/assets/my-journey-cover.jpg",
     "src/assets/my-journey-cover.jpg",
     "src/data/blog/rn-tip-lazy-viewmanagers.md",
@@ -214,7 +215,6 @@
     "/src/data/quick-tips/git-remove-files-based-on-gitignore.md",
     "/src/data/blog/sample-post-template.md",
     "/src/data/blog/rn-android-startup-optimization.md",
-    "/src/data/blog/getting-started-with-android-data-binding.md",
     "src/assets/icons/IconX.svg",
     "src/assets/icons/IconWhatsapp.svg"
   ]
