@@ -1,1 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelfy - Smart Inventory & Product Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-primary">📱 Shelfy</h1>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#features" class="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Features</a>
+                        <a href="#tech" class="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Technology</a>
+                        <a href="#screenshots" class="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Screenshots</a>
+
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
+                <a href="#features" class="text-gray-600 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Features</a>
+                <a href="#tech" class="text-gray-600 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Technology</a>
+                <a href="#screenshots" class="text-gray-600 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">Screenshots</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-indigo-500 via-purple-500 to-purple-600 hero-pattern pt-20 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="fade-in">
+                    <div class="flex justify-center mb-8">
+                        <div class="bg-white rounded-full p-6 shadow-lg">
+                            <i class="fas fa-box-open text-6xl text-primary"></i>
+                        </div>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                        Shelfy
+                    </h1>
+                    <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+                        Smart Inventory & Product Management
+                    </p>
+                    <p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
+                        Modern Android app for tracking products with expiry dates. Built with Jetpack Compose and Material 3 design.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://play.google.com/store/apps/details?id=com.yogeshpaliyal.shelfy" class="bg-white text-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                            <i class="fab fa-google-play mr-2"></i>Download from Play Store
+                        </a>
+                        <a href="#features" class="border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-primary transition-colors">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Key Features</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Everything you need to manage your inventory efficiently</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Management -->
+                <div class="fade-in bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+                    <div class="bg-primary rounded-lg p-3 w-fit mb-4">
+                        <i class="fas fa-box text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Product Management</h3>
+                    <p class="text-gray-600 mb-4">Add products with comprehensive details, organize with categories, and manage your entire inventory efficiently.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Create products with images</li>
+                        <li>• Custom categories</li>
+                        <li>• Edit & delete capabilities</li>
+                    </ul>
+                </div>
+
+                <!-- Expiry Tracking -->
+                <div class="fade-in bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+                    <div class="bg-red-500 rounded-lg p-3 w-fit mb-4">
+                        <i class="fas fa-clock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Expiry Date Tracking</h3>
+                    <p class="text-gray-600 mb-4">Track manufacturing dates, expiry dates, and get visual indicators for product freshness status.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Manufacturing & expiry dates</li>
+                        <li>• Visual status indicators</li>
+                        <li>• Automatic calculations</li>
+                    </ul>
+                </div>
+
+                <!-- Smart Notifications -->
+                <div class="fade-in bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+                    <div class="bg-yellow-500 rounded-lg p-3 w-fit mb-4">
+                        <i class="fas fa-bell text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Smart Notifications</h3>
+                    <p class="text-gray-600 mb-4">Get automatic alerts for products expiring soon with background processing and daily checks.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Expiry alerts</li>
+                        <li>• Background processing</li>
+                        <li>• Daily automated checks</li>
+                    </ul>
+                </div>
+
+                <!-- Search & Filtering -->
+                <div class="fade-in bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+                    <div class="bg-green-500 rounded-lg p-3 w-fit mb-4">
+                        <i class="fas fa-search text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Search & Filtering</h3>
+                    <p class="text-gray-600 mb-4">Find products instantly with smart search and filter by expiry status or category.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Real-time search</li>
+                        <li>• Smart filters</li>
+                        <li>• Category filtering</li>
+                    </ul>
+                </div>
+
+                <!-- Modern UI -->
+                <div class="fade-in bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+                    <div class="bg-purple-500 rounded-lg p-3 w-fit mb-4">
+                        <i class="fas fa-palette text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Modern UI</h3>
+                    <p class="text-gray-600 mb-4">Beautiful Material 3 design with dark/light mode, smooth animations, and responsive layout.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Material 3 design</li>
+                        <li>• Dark/light themes</li>
+                        <li>• Smooth animations</li>
+                    </ul>
+                </div>
+
+                <!-- Data Management -->
+                <div class="fade-in bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+                    <div class="bg-blue-500 rounded-lg p-3 w-fit mb-4">
+                        <i class="fas fa-cloud text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Data Management</h3>
+                    <p class="text-gray-600 mb-4">Local storage with Google Drive sync, data export, and full offline functionality.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Google Drive sync</li>
+                        <li>• CSV export</li>
+                        <li>• Offline support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="tech" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Built with Modern Technology</h2>
+                <p class="text-xl text-gray-600">Powered by the latest Android development tools and best practices</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Core Technologies -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Core Technologies</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-orange-500 rounded-lg p-2 mr-4">
+                                <i class="fab fa-android text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Kotlin</h4>
+                                <p class="text-gray-600 text-sm">Modern programming language for Android</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-500 rounded-lg p-2 mr-4">
+                                <i class="fas fa-mobile-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Jetpack Compose</h4>
+                                <p class="text-gray-600 text-sm">Declarative UI toolkit</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-purple-500 rounded-lg p-2 mr-4">
+                                <i class="fas fa-paint-brush text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Material 3</h4>
+                                <p class="text-gray-600 text-sm">Google's latest design system</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-green-500 rounded-lg p-2 mr-4">
+                                <i class="fas fa-database text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Room Database</h4>
+                                <p class="text-gray-600 text-sm">Local SQLite database with type safety</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Architecture -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Architecture & Patterns</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-indigo-500 rounded-lg p-2 mr-4">
+                                <i class="fas fa-layer-group text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">MVVM Architecture</h4>
+                                <p class="text-gray-600 text-sm">Model-View-ViewModel pattern</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-red-500 rounded-lg p-2 mr-4">
+                                <i class="fas fa-sitemap text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Repository Pattern</h4>
+                                <p class="text-gray-600 text-sm">Data abstraction layer</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-yellow-500 rounded-lg p-2 mr-4">
+                                <i class="fas fa-cogs text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Dependency Injection</h4>
+                                <p class="text-gray-600 text-sm">Koin for dependency management</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-teal-500 rounded-lg p-2 mr-4">
+                                <i class="fas fa-cube text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Clean Architecture</h4>
+                                <p class="text-gray-600 text-sm">Separation of concerns</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">App Screenshots</h2>
+                <p class="text-xl text-gray-600">See Shelfy in action</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="fade-in text-center">
+                    <div class="bg-gray-100 rounded-lg p-4 mb-4 aspect-[9/16] max-h-96 flex items-center justify-center overflow-hidden">
+                        <img src="./dashboard.png" class="w-full h-full object-contain rounded-md" alt="Dashboard Screenshot" />
+                    </div>
+                    <h3 class="font-semibold text-gray-900">Dashboard</h3>
+                    <p class="text-gray-600 text-sm">Overview of your inventory</p>
+                </div>
+                <div class="fade-in text-center">
+                    <div class="bg-gray-100 rounded-lg p-4 mb-4 aspect-[9/16] max-h-96 flex items-center justify-center overflow-hidden">
+                        <img src="./product_add.png" class="w-full h-full object-contain rounded-md" alt="Add Product Screenshot" />
+                    </div>
+                    <h3 class="font-semibold text-gray-900">Add Product</h3>
+                    <p class="text-gray-600 text-sm">Easy product creation</p>
+                </div>
+                <div class="fade-in text-center">
+                    <div class="bg-gray-100 rounded-lg p-4 mb-4 aspect-[9/16] max-h-96 flex items-center justify-center overflow-hidden">
+                        <img src="./product_detail.png" class="w-full h-full object-contain rounded-md" alt="Product Details Screenshot" />
+                    </div>
+                    <h3 class="font-semibold text-gray-900">Product Details</h3>
+                    <p class="text-gray-600 text-sm">Comprehensive product info</p>
+                </div>
+                <div class="fade-in text-center">
+                    <div class="bg-gray-100 rounded-lg p-4 mb-4 aspect-[9/16] max-h-96 flex items-center justify-center overflow-hidden">
+                        <img src="./settings.png" class="w-full h-full object-contain rounded-md" alt="Settings Screenshot" />
+                    </div>
+                    <h3 class="font-semibold text-gray-900">Settings</h3>
+                    <p class="text-gray-600 text-sm">Customize your experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-indigo-500 via-purple-500 to-purple-600 hero-pattern">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+                <p class="text-xl text-white/90 mb-8">
+                    Join the community and start managing your inventory efficiently
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://play.google.com/store/apps/details?id=com.yogeshpaliyal.shelfy" class="bg-white text-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                        <i class="fab fa-google-play mr-2"></i>Download from Play Store
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">📱 Shelfy</h3>
+                    <p class="text-gray-400">Smart Inventory & Product Management for Android</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://github.com/yogeshpaliyal/shelfy" class="text-gray-400 hover:text-white transition-colors">GitHub Repository</a></li>
+                        <li><a href="https://github.com/yogeshpaliyal/shelfy/issues" class="text-gray-400 hover:text-white transition-colors">Report Issues</a></li>
+                        <li><a href="https://github.com/yogeshpaliyal/shelfy/releases" class="text-gray-400 hover:text-white transition-colors">Releases</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Technology</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Kotlin</li>
+                        <li class="text-gray-400">Jetpack Compose</li>
+                        <li class="text-gray-400">Material 3</li>
+                        <li class="text-gray-400">Room Database</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Shelfy. Licensed under MIT License. Made with ❤️ using Android & Jetpack Compose</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initial fade-in for hero section
+        setTimeout(() => {
+            document.querySelector('.fade-in').classList.add('visible');
+        }, 100);
+
+        // Add dynamic year to footer
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentYear = new Date().getFullYear();
+            const yearElement = document.querySelector('footer p');
+            if (yearElement) {
+                yearElement.innerHTML = yearElement.innerHTML.replace('2025', currentYear);
+            }
+        });
+    </script>
+</body>
+</html>
 
