@@ -1,0 +1,45 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, getEntry, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import BackButton from "@/components/BackButton.astro";
+import { SITE } from "@/config";
+
+export const getStaticPaths = (async () => {
+  const policies = await getCollection("appPrivacy");
+  return policies.map(policy => ({ params: { slug: policy.id }, props: { policy } }));
+}) satisfies GetStaticPaths;
+
+const { policy } = Astro.props;
+const app = await getEntry("apps", policy.id);
+const name = app?.data.name ?? policy.id;
+const { Content } = await render(policy);
+const effective = policy.data.effectiveDate.toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+---
+
+<Layout
+  title={`${name} Privacy Policy | ${SITE.title}`}
+  description={`Privacy policy for the ${name} Android app.`}
+>
+  <Header />
+  <BackButton />
+  <main id="main-content" class="mx-auto w-full max-w-3xl px-4 pb-12">
+    <article class="prose mx-auto mt-4 max-w-3xl">
+      <h1>{name} privacy policy</h1>
+      <p><em>Effective date: {effective}</em></p>
+      <Content />
+      <p>
+        Questions? Open an issue on
+        {app ? <a href={`${app.data.githubUrl}/issues`}>GitHub</a> : "GitHub"}.
+        {app && <> Back to <a href={`/projects/${policy.id}`}>{name}</a>.</>}
+      </p>
+    </article>
+  </main>
+  <Footer />
+</Layout>

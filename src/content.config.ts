@@ -48,4 +48,42 @@ const projects = defineCollection({
     }),
 });
 
-export const collections = { blog, projects };
+// Landing pages for apps, served at /projects/<id> (id = file name).
+export const APPS_PATH = "src/data/apps";
+
+const apps = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.md", base: `./${APPS_PATH}` }),
+  schema: z.object({
+    name: z.string(),
+    // SEO <title> / H1 — lead with the problem people search for
+    title: z.string(),
+    tagline: z.string(),
+    description: z.string(),
+    icon: z.string().optional(),
+    ogImage: z.string().optional(),
+    keywords: z.array(z.string()).default([]),
+    category: z.string().default("UtilitiesApplication"),
+    playStoreId: z.string().optional(),
+    downloadUrl: z.string().optional(),
+    downloadLabel: z.string().default("Download APK"),
+    githubUrl: z.string(),
+    screenshots: z
+      .array(z.object({ src: z.string(), alt: z.string(), caption: z.string().optional() }))
+      .default([]),
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
+    disclaimer: z.string().optional(),
+    // Markdown body of the privacy policy lives in src/data/app-privacy/<id>.md
+    privacyUpdated: z.coerce.date().optional(),
+    pubDatetime: z.coerce.date(),
+    modDatetime: z.coerce.date().optional(),
+  }),
+});
+
+const appPrivacy = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/data/app-privacy" }),
+  schema: z.object({
+    effectiveDate: z.coerce.date(),
+  }),
+});
+
+export const collections = { blog, projects, apps, appPrivacy };

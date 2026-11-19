@@ -1,5 +1,69 @@
 [
     {
+        "priority": 1,
+        "id": "halo",
+        "title": "Halo – One-Thumb App Switcher",
+        "description": "A floating edge bubble for Android: long-press, slide to a favourite or recent app, let go. Open source, no internet permission.",
+        "projectType": "github",
+        "username": "yogeshpaliyal",
+        "repoName": "Halo",
+        "url": "/projects/halo",
+        "tags": [
+            "android"
+        ],
+        "draft": false,
+        "featured": true,
+        "pubDatetime": "2026-11-19T00:00:00Z"
+    },
+    {
+        "priority": 2,
+        "id": "sendahead",
+        "title": "Sendahead – WhatsApp Message Scheduler",
+        "description": "Schedule WhatsApp messages with attachments on Android. Fully offline and open source.",
+        "projectType": "github",
+        "username": "yogeshpaliyal",
+        "repoName": "Whatsapp-scheduler",
+        "url": "/projects/sendahead",
+        "tags": [
+            "android"
+        ],
+        "draft": false,
+        "featured": true,
+        "pubDatetime": "2026-11-19T00:00:00Z"
+    },
+    {
+        "priority": 2,
+        "id": "gapwise",
+        "title": "Gapwise – Time Since You Last Did It",
+        "description": "Track how long since you last did things like a haircut or calling home. Learns your rhythm and nudges you when it's due.",
+        "projectType": "github",
+        "username": "yogeshpaliyal",
+        "repoName": "Gapwise",
+        "url": "/projects/gapwise",
+        "tags": [
+            "android"
+        ],
+        "draft": false,
+        "featured": true,
+        "pubDatetime": "2026-11-19T00:00:00Z"
+    },
+    {
+        "priority": 3,
+        "id": "dwr-sync",
+        "title": "DWR Sync – Health Connect to Devs Who Run",
+        "description": "Auto-sync workouts from Samsung Health and any Health Connect app to your Devs Who Run account.",
+        "projectType": "github",
+        "username": "yogeshpaliyal",
+        "repoName": "dwr-sync",
+        "url": "/projects/dwr-sync",
+        "tags": [
+            "android"
+        ],
+        "draft": false,
+        "featured": true,
+        "pubDatetime": "2026-11-19T00:00:00Z"
+    },
+    {
         "priority": 2,
         "id": "Deepr",
         "title": "Deepr 🔗 Deeplink manager",

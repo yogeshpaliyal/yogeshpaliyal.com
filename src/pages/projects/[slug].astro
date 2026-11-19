@@ -1,0 +1,179 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, getEntry, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import BackButton from "@/components/BackButton.astro";
+import { SITE } from "@/config";
+import { playStoreUrl } from "@/utils/appLinks";
+
+export const getStaticPaths = (async () => {
+  const apps = await getCollection("apps");
+  return apps.map(app => ({ params: { slug: app.id }, props: { app } }));
+}) satisfies GetStaticPaths;
+
+const { app } = Astro.props;
+const d = app.data;
+const { Content } = await render(app);
+const hasPrivacy = Boolean(await getEntry("appPrivacy", app.id));
+
+const pageUrl = new URL(`/projects/${app.id}`, SITE.website).href;
+const playUrl = d.playStoreId ? playStoreUrl(d.playStoreId, app.id) : undefined;
+const ogImage = d.ogImage ?? d.screenshots[0]?.src ?? d.icon;
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: d.name,
+    description: d.description,
+    url: pageUrl,
+    applicationCategory: d.category,
+    operatingSystem: "Android",
+    ...(d.icon && { image: new URL(d.icon, SITE.website).href }),
+    ...(d.screenshots.length && {
+      screenshot: d.screenshots.map(s => new URL(s.src, SITE.website).href),
+    }),
+    ...((playUrl || d.downloadUrl) && { downloadUrl: playUrl ?? d.downloadUrl }),
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    author: { "@type": "Person", name: SITE.author, url: SITE.profile },
+    sameAs: [d.githubUrl],
+  },
+  ...(d.faq.length
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: d.faq.map(f => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+      ]
+    : []),
+];
+---
+
+<Layout
+  title={d.title}
+  description={d.description}
+  ogImage={ogImage}
+  pubDatetime={d.pubDatetime}
+  modDatetime={d.modDatetime}
+  structuredData={structuredData}
+>
+  <Header />
+  <BackButton />
+  <main id="main-content" class="mx-auto w-full max-w-3xl px-4 pb-12" data-pagefind-body>
+    <header class="mt-4 flex items-center gap-4">
+      {
+        d.icon && (
+          <img
+            src={d.icon}
+            alt={`${d.name} app icon`}
+            width="72"
+            height="72"
+            class="h-16 w-16 shrink-0 rounded-2xl sm:h-18 sm:w-18"
+          />
+        )
+      }
+      <div>
+        <h1 class="text-accent text-2xl font-bold sm:text-3xl">{d.title}</h1>
+        <p class="mt-1 opacity-80">{d.tagline}</p>
+      </div>
+    </header>
+
+    <div class="mt-6 flex flex-wrap gap-3">
+      {
+        playUrl && (
+          <a
+            href={playUrl}
+            class="bg-accent text-background rounded-lg px-4 py-2 font-semibold hover:opacity-90"
+            data-event="play_store_click"
+          >
+            Get it on Google Play
+          </a>
+        )
+      }
+      {
+        d.downloadUrl && (
+          <a
+            href={d.downloadUrl}
+            class:list={[
+              "rounded-lg px-4 py-2 font-semibold",
+              playUrl
+                ? "border-accent text-accent border-2 hover:opacity-80"
+                : "bg-accent text-background hover:opacity-90",
+            ]}
+          >
+            {d.downloadLabel}
+          </a>
+        )
+      }
+      <a href={d.githubUrl} class="rounded-lg border-2 px-4 py-2 font-semibold hover:opacity-80">
+        Source on GitHub
+      </a>
+    </div>
+
+    {
+      d.disclaimer && (
+        <p class="bg-muted mt-6 rounded-lg px-4 py-3 text-sm">{d.disclaimer}</p>
+      )
+    }
+
+    {
+      d.screenshots.length > 0 && (
+        <section class="mt-8 px-0" aria-label="Screenshots">
+          <div class="flex snap-x gap-4 overflow-x-auto pb-2">
+            {d.screenshots.map(s => (
+              <figure class="w-48 shrink-0 snap-start sm:w-56">
+                <img
+                  src={s.src}
+                  alt={s.alt}
+                  loading="lazy"
+                  class="rounded-xl border"
+                />
+                {s.caption && (
+                  <figcaption class="mt-2 text-center text-sm opacity-75">
+                    {s.caption}
+                  </figcaption>
+                )}
+              </figure>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <article class="prose mx-auto mt-8 max-w-3xl">
+      <Content />
+
+      {
+        d.faq.length > 0 && (
+          <>
+            <h2>FAQ</h2>
+            {d.faq.map(f => (
+              <details>
+                <summary>
+                  <strong>{f.q}</strong>
+                </summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </>
+        )
+      }
+    </article>
+
+    <hr class="my-8 border-dashed" />
+    <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm" aria-label={`${d.name} links`}>
+      {hasPrivacy && <a class="hover:text-accent underline" href={`/projects/${app.id}/privacy`}>Privacy policy</a>}
+      <a class="hover:text-accent underline" href={`${d.githubUrl}/releases`}>Changelog</a>
+      <a class="hover:text-accent underline" href={`${d.githubUrl}/issues`}>Report an issue</a>
+      <a class="hover:text-accent underline" href="/projects">More projects</a>
+    </nav>
+  </main>
+  <Footer />
+</Layout>
