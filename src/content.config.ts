@@ -72,6 +72,14 @@ const apps = defineCollection({
       .array(z.object({ src: z.string(), alt: z.string(), caption: z.string().optional() }))
       .default([]),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
+    // Branding: accent for light theme, accentDark for dark theme, heroBg for the hero panel
+    accent: z.string().optional(),
+    accentDark: z.string().optional(),
+    heroBg: z.string().default("#1c1c1c"),
+    heroImage: z.string().optional(),
+    features: z
+      .array(z.object({ icon: z.string(), title: z.string(), text: z.string() }))
+      .default([]),
     disclaimer: z.string().optional(),
     // Markdown body of the privacy policy lives in src/data/app-privacy/<id>.md
     privacyUpdated: z.coerce.date().optional(),

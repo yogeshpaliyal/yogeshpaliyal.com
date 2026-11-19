@@ -39,6 +39,35 @@ faq:
   - q: Does it work with work profile apps?
     a: Yes, work profile apps can be favourites and show a briefcase badge. Private space apps can't, because Android only exposes them to the default home app.
 pubDatetime: 2026-11-19
+accent: "#5b4bb7"
+accentDark: "#b9a8ff"
+heroBg: "#14121f"
+heroImage: /projects/halo/social-card.jpg
+features:
+  - icon: "⚡"
+    title: "Quick actions"
+    text: "Flashlight, volume panel and play/pause as favourites, with no extra permissions."
+  - icon: "🗂️"
+    title: "Folders"
+    text: "Group up to 8 apps in one favourite slot and fan them out from the dial."
+  - icon: "🎨"
+    title: "Make it yours"
+    text: "7 characters in 8 colours, plus bubble size and opacity."
+  - icon: "🎮"
+    title: "Hides in full screen"
+    text: "Gets out of the way in games, videos and any apps you choose."
+  - icon: "🙈"
+    title: "Hide from recents"
+    text: "Keep any app out of the recent-apps ring."
+  - icon: "🔔"
+    title: "Notification dots"
+    text: "See which apps have notifications waiting, never what they say."
+  - icon: "🌍"
+    title: "11 languages"
+    text: "Including हिन्दी, Español, Deutsch, Français and 日本語."
+  - icon: "🔒"
+    title: "No internet permission"
+    text: "No ads, analytics or accounts. Nothing leaves your phone."
 ---
 
 ## Switch apps without the recents screen
@@ -49,17 +78,6 @@ If you jump between the same handful of apps all day, the recents screen is a sl
 - **Slide** to an app (you feel a tick on each one) and **let go** to open it. Let go near the bubble to cancel.
 - **Tap** to jump back to your previous app. **Double-tap** to go to the one before that.
 - **Drag** the bubble anywhere. It snaps to the nearest edge and remembers its position.
-
-## Features
-
-- **Quick actions as favourites:** flashlight, volume panel and play/pause, with no extra permissions.
-- **Folders:** group up to 8 apps in one favourite slot.
-- **Make it yours:** 7 characters (Classic, Blob, Kitty, Ghost, Sprout, Star, Bot) in 8 colours, plus bubble size and opacity.
-- **Hides in full-screen apps** like games and videos, and in any apps you choose.
-- **Hide from recents:** keep any app out of the recent-apps ring.
-- **Notification dots** (optional): Halo sees which apps have notifications, never what they say.
-- **11 languages**, including हिन्दी, Español, Deutsch, Français and 日本語.
-- **Starts on boot** if the bubble was on before the restart.
 
 ## Private by design
 

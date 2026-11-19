@@ -33,19 +33,34 @@ faq:
   - q: Will it upload duplicates?
     a: No. If two apps record the same workout, DWR Sync uploads the copy from your highest-priority app and marks the rest as duplicates.
 pubDatetime: 2026-11-19
+accent: "#234d3c"
+accentDark: "#8fc4a8"
+heroBg: "#234d3c"
+heroImage: /projects/dwr-sync/banner.png
+features:
+  - icon: "🔄"
+    title: "Auto-sync"
+    text: "Uploads new workouts in the background, with retries when offline."
+  - icon: "🏃"
+    title: "Any Health Connect app"
+    text: "Samsung Health, Google Fit, Health Sync and more."
+  - icon: "🧹"
+    title: "No duplicates"
+    text: "The same workout from two apps is uploaded once, from your top-priority app."
+  - icon: "📅"
+    title: "Import older workouts"
+    text: "The last 7, 30 or 90 days, 12 months or a custom range."
+  - icon: "📋"
+    title: "Workout log"
+    text: "See what synced, what was skipped and why."
+  - icon: "🔐"
+    title: "Encrypted token"
+    text: "Your agent token is stored encrypted on the device."
 ---
 
 ## Workouts from any Health Connect app, synced automatically
 
 DWR Sync reads the workouts your fitness apps record in Health Connect, like Samsung Health, Google Fit or Health Sync. It uploads them to your [Devs Who Run](https://devswhorun.dev) account in the background.
-
-## Features
-
-- **Auto-sync** in the background, with retries when you're offline
-- **Pick your sources** and set their priority. Duplicates across apps are detected and skipped.
-- **Import older workouts:** the last 7, 30 or 90 days, the last 12 months, or a custom date range
-- **Workout log** grouped by day, showing what synced, what was skipped and why
-- Your token is stored encrypted on the device
 
 ## Setup in five steps
 

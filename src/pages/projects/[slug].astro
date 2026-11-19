@@ -17,10 +17,17 @@ const { app } = Astro.props;
 const d = app.data;
 const { Content } = await render(app);
 const hasPrivacy = Boolean(await getEntry("appPrivacy", app.id));
+const otherApps = (await getCollection("apps")).filter(a => a.id !== app.id);
+const accentVars = [
+  d.accent && `--app-accent:${d.accent}`,
+  d.accentDark && `--app-accent-dark:${d.accentDark}`,
+]
+  .filter(Boolean)
+  .join(";");
 
 const pageUrl = new URL(`/projects/${app.id}`, SITE.website).href;
 const playUrl = d.playStoreId ? playStoreUrl(d.playStoreId, app.id) : undefined;
-const ogImage = d.ogImage ?? d.screenshots[0]?.src ?? d.icon;
+const ogImage = d.ogImage ?? d.heroImage ?? d.screenshots[0]?.src ?? d.icon;
 
 const structuredData = [
   {
@@ -66,56 +73,79 @@ const structuredData = [
 >
   <Header />
   <BackButton />
-  <main id="main-content" class="mx-auto w-full max-w-3xl px-4 pb-12" data-pagefind-body>
-    <header class="mt-4 flex items-center gap-4">
+  <main
+    id="main-content"
+    class="app-page mx-auto w-full max-w-3xl px-4 pb-12"
+    style={accentVars}
+    data-pagefind-body
+  >
+    <!-- Hero -->
+    <section
+      class="mt-4 overflow-hidden rounded-3xl px-5 py-8 text-white sm:px-8 sm:py-10"
+      style={`background:${d.heroBg}`}
+    >
+      <div class="flex items-center gap-4">
+        {
+          d.icon && (
+            <img
+              src={d.icon}
+              alt={`${d.name} app icon`}
+              width="80"
+              height="80"
+              class="h-16 w-16 shrink-0 rounded-2xl shadow-lg sm:h-20 sm:w-20"
+            />
+          )
+        }
+        <div>
+          <p class="text-sm tracking-widest uppercase opacity-70">Android app</p>
+          <h1 class="text-2xl font-bold sm:text-3xl">{d.title}</h1>
+        </div>
+      </div>
+      <p class="mt-4 text-lg opacity-90">{d.tagline}</p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        {
+          playUrl && (
+            <a
+              href={playUrl}
+              class="hero-primary rounded-xl px-5 py-2.5 font-semibold hover:opacity-90"
+            >
+              Get it on Google Play
+            </a>
+          )
+        }
+        {
+          d.downloadUrl && (
+            <a
+              href={d.downloadUrl}
+              class:list={[
+                "rounded-xl px-5 py-2.5 font-semibold hover:opacity-90",
+                playUrl ? "border-2 border-white/60" : "hero-primary",
+              ]}
+            >
+              {d.downloadLabel}
+            </a>
+          )
+        }
+        <a
+          href={d.githubUrl}
+          class="rounded-xl border-2 border-white/60 px-5 py-2.5 font-semibold hover:opacity-90"
+        >
+          Source on GitHub
+        </a>
+      </div>
+      <p class="mt-4 text-sm opacity-70">Free · Open source · No ads</p>
+
       {
-        d.icon && (
+        d.heroImage && (
           <img
-            src={d.icon}
-            alt={`${d.name} app icon`}
-            width="72"
-            height="72"
-            class="h-16 w-16 shrink-0 rounded-2xl sm:h-18 sm:w-18"
+            src={d.heroImage}
+            alt={`${d.name} preview`}
+            class="mt-8 w-full rounded-2xl"
           />
         )
       }
-      <div>
-        <h1 class="text-accent text-2xl font-bold sm:text-3xl">{d.title}</h1>
-        <p class="mt-1 opacity-80">{d.tagline}</p>
-      </div>
-    </header>
-
-    <div class="mt-6 flex flex-wrap gap-3">
-      {
-        playUrl && (
-          <a
-            href={playUrl}
-            class="bg-accent text-background rounded-lg px-4 py-2 font-semibold hover:opacity-90"
-            data-event="play_store_click"
-          >
-            Get it on Google Play
-          </a>
-        )
-      }
-      {
-        d.downloadUrl && (
-          <a
-            href={d.downloadUrl}
-            class:list={[
-              "rounded-lg px-4 py-2 font-semibold",
-              playUrl
-                ? "border-accent text-accent border-2 hover:opacity-80"
-                : "bg-accent text-background hover:opacity-90",
-            ]}
-          >
-            {d.downloadLabel}
-          </a>
-        )
-      }
-      <a href={d.githubUrl} class="rounded-lg border-2 px-4 py-2 font-semibold hover:opacity-80">
-        Source on GitHub
-      </a>
-    </div>
+    </section>
 
     {
       d.disclaimer && (
@@ -123,20 +153,23 @@ const structuredData = [
       )
     }
 
+    <!-- Screenshots in phone frames -->
     {
       d.screenshots.length > 0 && (
-        <section class="mt-8 px-0" aria-label="Screenshots">
-          <div class="flex snap-x gap-4 overflow-x-auto pb-2">
+        <section class="mt-10 px-0" aria-label="Screenshots">
+          <div class="-mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-3">
             {d.screenshots.map(s => (
-              <figure class="w-48 shrink-0 snap-start sm:w-56">
-                <img
-                  src={s.src}
-                  alt={s.alt}
-                  loading="lazy"
-                  class="rounded-xl border"
-                />
+              <figure class="w-44 shrink-0 snap-start sm:w-52">
+                <div class="rounded-[2rem] bg-neutral-900 p-2 shadow-lg ring-1 ring-black/10">
+                  <img
+                    src={s.src}
+                    alt={s.alt}
+                    loading="lazy"
+                    class="w-full rounded-[1.5rem]"
+                  />
+                </div>
                 {s.caption && (
-                  <figcaption class="mt-2 text-center text-sm opacity-75">
+                  <figcaption class="mt-3 text-center text-sm opacity-75">
                     {s.caption}
                   </figcaption>
                 )}
@@ -147,7 +180,29 @@ const structuredData = [
       )
     }
 
-    <article class="prose mx-auto mt-8 max-w-3xl">
+    <!-- Feature cards -->
+    {
+      d.features.length > 0 && (
+        <section class="mt-10 px-0" aria-labelledby="features-heading">
+          <h2 id="features-heading" class="text-accent text-xl font-bold sm:text-2xl">
+            Features
+          </h2>
+          <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+            {d.features.map(f => (
+              <li class="rounded-2xl border p-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-2xl" aria-hidden="true">{f.icon}</span>
+                  <h3 class="font-semibold">{f.title}</h3>
+                </div>
+                <p class="mt-1 text-sm opacity-80">{f.text}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <article class="prose mx-auto mt-10 max-w-3xl">
       <Content />
 
       {
@@ -167,13 +222,63 @@ const structuredData = [
       }
     </article>
 
+    <!-- Related apps -->
+    {
+      otherApps.length > 0 && (
+        <section class="mt-12 px-0" aria-labelledby="more-apps-heading">
+          <h2 id="more-apps-heading" class="text-xl font-bold">
+            More apps by {SITE.author}
+          </h2>
+          <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+            {otherApps.map(a => (
+              <li>
+                <a
+                  href={`/projects/${a.id}`}
+                  class="hover:border-accent flex items-center gap-3 rounded-2xl border p-3"
+                >
+                  {a.data.icon && (
+                    <img
+                      src={a.data.icon}
+                      alt=""
+                      width="48"
+                      height="48"
+                      loading="lazy"
+                      class="h-12 w-12 shrink-0 rounded-xl"
+                    />
+                  )}
+                  <span>
+                    <span class="block font-semibold">{a.data.name}</span>
+                    <span class="block text-sm opacity-75">{a.data.tagline}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
     <hr class="my-8 border-dashed" />
     <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm" aria-label={`${d.name} links`}>
       {hasPrivacy && <a class="hover:text-accent underline" href={`/projects/${app.id}/privacy`}>Privacy policy</a>}
       <a class="hover:text-accent underline" href={`${d.githubUrl}/releases`}>Changelog</a>
       <a class="hover:text-accent underline" href={`${d.githubUrl}/issues`}>Report an issue</a>
-      <a class="hover:text-accent underline" href="/projects">More projects</a>
+      <a class="hover:text-accent underline" href="/projects">All projects</a>
     </nav>
   </main>
   <Footer />
 </Layout>
+
+<style is:global>
+  /* Per-app brand colour: overrides the site accent inside the app page */
+  .app-page {
+    --accent: var(--app-accent, #2c72b2);
+  }
+  html[data-theme="dark"] .app-page {
+    --accent: var(--app-accent-dark, var(--app-accent, #ff9100));
+  }
+  .app-page .hero-primary {
+    background: var(--app-accent-dark, #ffffff);
+    color: #111111;
+  }
+</style>

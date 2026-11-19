@@ -22,22 +22,39 @@ faq:
   - q: Do I need an account?
     a: No. There's no account, ads or tracking. Your data stays on your phone, with optional JSON export and Google Drive backup.
 pubDatetime: 2026-11-19
+accent: "#7a2a6a"
+accentDark: "#f4a6c8"
+heroBg: "#3d1840"
+features:
+  - icon: "👆"
+    title: "One-tap logging"
+    text: "Tap a tile to log it, with undo."
+  - icon: "📈"
+    title: "Learned rhythm"
+    text: "After 3 logs it estimates your usual gap and when the next one is due."
+  - icon: "🔔"
+    title: "Gentle nudges"
+    text: "A notification around when something is usually due. Log straight from it."
+  - icon: "🧳"
+    title: "Multi-day events"
+    text: "Trips and sick days get a start and an end, and Gapwise shows how long they usually last."
+  - icon: "📊"
+    title: "Insights"
+    text: "Gap chart, calendar and editable history with notes for every event."
+  - icon: "🗂️"
+    title: "Organise"
+    text: "Categories, pin, hide, pause, search, sorting, grid or list."
+  - icon: "📱"
+    title: "Widget & shortcuts"
+    text: "Log from the home screen or a launcher shortcut."
+  - icon: "🔒"
+    title: "Private"
+    text: "No account, ads or tracking. Backups to your own Google Drive."
 ---
 
 ## For the things that don't run on a schedule
 
 When did you last get a haircut? Change the car's oil? Call home? Gapwise keeps the answer one tap away. It learns your usual gap between each one and nudges you around when it's usually due.
-
-## Features
-
-- **One-tap logging:** tap a tile to log it, with undo.
-- **Learned rhythm:** after 3 logs, Gapwise estimates your usual gap (for example, "Usually every 36 days") and when the next one is expected. One-off long gaps, like a trip, are ignored.
-- **Gentle nudges:** a notification arrives around when something is usually due. You can log straight from it.
-- **Multi-day events:** trips and sick days get a start tap and an end tap, and Gapwise shows how long they usually last.
-- **Insights:** a gap chart, calendar and editable history with notes for every event.
-- **Organise:** categories, pin, hide, pause, search, sorting, and grid or list view.
-- **Log from anywhere:** a home-screen widget and launcher shortcuts.
-- **Quick start:** over 40 starter events, each with an approximate last date.
 
 ## Private
 

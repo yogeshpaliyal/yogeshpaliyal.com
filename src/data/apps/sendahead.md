@@ -27,17 +27,33 @@ faq:
   - q: Is it a free alternative to SKEDit?
     a: Yes. Sendahead is free and open source, with no account and no ads.
 pubDatetime: 2026-11-19
+accent: "#2e2a80"
+accentDark: "#f6b494"
+heroBg: "#2e2a7a"
+features:
+  - icon: "📎"
+    title: "Attachments"
+    text: "Schedule text, images, videos, PDFs or any file."
+  - icon: "👥"
+    title: "Groups & contacts"
+    text: "Send to groups and saved contacts by name, or to any number."
+  - icon: "💼"
+    title: "WhatsApp Business"
+    text: "Works with both WhatsApp and WhatsApp Business."
+  - icon: "🧪"
+    title: "Test send"
+    text: "Check it works on your phone before you rely on it."
+  - icon: "🔓"
+    title: "Auto-unlock"
+    text: "Optional, with your PIN encrypted in the Android Keystore."
+  - icon: "📴"
+    title: "Fully offline"
+    text: "No internet permission, no account and no server."
 ---
 
 ## Schedule WhatsApp messages, with attachments
 
 Birthday wishes at midnight, a reminder to a client first thing Monday, a file sent while you're on a flight: write it now and Sendahead sends it at the right time.
-
-- Schedule **text, images, videos, PDFs or any file**
-- Send to **groups and saved contacts by name**, or to any number
-- Works with **WhatsApp and WhatsApp Business**
-- **Test send now** to check it works on your phone
-- Optional **auto-unlock** with your PIN or password, encrypted with the Android Keystore (off by default)
 
 ## Fully offline
 
