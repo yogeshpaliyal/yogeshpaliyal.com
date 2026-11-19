@@ -35,6 +35,7 @@ const projects = defineCollection({
       modDatetime: z.coerce.date().optional().nullable(),
       title: z.string(),
       url: z.string(),
+      icon: z.string().optional(),
       featured: z.boolean().optional(),
       draft: z.literal("unlisted").or(z.boolean()).optional(),
       projectType: z.literal("github").default("github"),

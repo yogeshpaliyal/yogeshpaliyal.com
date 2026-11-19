@@ -3,6 +3,7 @@ name: Halo
 title: "Halo – One-Thumb App Switcher Bubble for Android"
 tagline: Hold the bubble, slide to an app, let go. Switch apps with one thumb.
 description: "Halo is a free, open-source floating app switcher for Android. Long-press an edge bubble to open a radial menu of favourite and recent apps. No ads, no tracking, no internet permission."
+icon: /projects/halo/icon.png
 ogImage: /projects/halo/social-card.jpg
 keywords:
   - android app switcher

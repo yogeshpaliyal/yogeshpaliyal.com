@@ -11,6 +11,8 @@ export interface Props extends CollectionEntry<"blog"> {
 const { variant = "h2", data, id, filePath } = Astro.props;
 
 const { title, description, pubDatetime, modDatetime, timezone } = data;
+// Only project entries carry an icon
+const icon = "icon" in data ? (data.icon as string | undefined) : undefined;
 
 const headerProps = {
   style: { viewTransitionName: slugifyStr(title) },
@@ -18,19 +20,35 @@ const headerProps = {
 };
 ---
 
-<li class="my-6">
-  <a
-    href={data.url ?? getPath(id, filePath)}
-    class="text-accent inline-block text-lg font-medium decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
-  >
-    {
-      variant === "h2" ? (
-        <h2 {...headerProps}>{title}</h2>
-      ) : (
-        <h3 {...headerProps}>{title}</h3>
-      )
-    }
-  </a>
-  <Datetime {pubDatetime} {modDatetime} {timezone} />
-  <p>{description}</p>
+<li class:list={["my-6", { "flex items-start gap-4": icon }]}>
+  {
+    icon && (
+      <a href={data.url ?? getPath(id, filePath)} tabindex="-1" aria-hidden="true" class="shrink-0">
+        <img
+          src={icon}
+          alt=""
+          width="56"
+          height="56"
+          loading="lazy"
+          class="h-14 w-14 rounded-2xl"
+        />
+      </a>
+    )
+  }
+  <div>
+    <a
+      href={data.url ?? getPath(id, filePath)}
+      class="text-accent inline-block text-lg font-medium decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+    >
+      {
+        variant === "h2" ? (
+          <h2 {...headerProps}>{title}</h2>
+        ) : (
+          <h3 {...headerProps}>{title}</h3>
+        )
+      }
+    </a>
+    <Datetime {pubDatetime} {modDatetime} {timezone} />
+    <p>{description}</p>
+  </div>
 </li>
