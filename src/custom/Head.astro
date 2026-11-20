@@ -1,0 +1,30 @@
+---
+// Rendered in <head> on every page, after the theme's own tags. Add
+// your own tags here: analytics, site verification, extra <meta> or
+// <link>, stylesheets. This file is yours: AstroPaper never changes it
+// after release.
+type Props = {
+  title: string;
+  description: string;
+};
+---
+
+<!-- App icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- Google tag (gtag.js) -->
+<script
+  is:inline
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-662BK7MF5B"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-662BK7MF5B");
+</script>

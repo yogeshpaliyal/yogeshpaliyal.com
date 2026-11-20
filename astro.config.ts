@@ -1,114 +1,102 @@
-import { defineConfig } from "astro/config";
+import {
+  defineConfig,
+  envField,
+  fontProviders,
+  svgoOptimizer,
+} from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
+import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import remarkToc from "remark-toc";
-import remarkCollapse from "remark-collapse";
-import { SITE } from "./src/config";
-
-import react from "@astrojs/react";
+import { rehypeHeadingIds, unified } from "@astrojs/markdown-remark";
+import rehypeCallouts from "rehype-callouts";
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+  transformerNotationWordHighlight,
+} from "@shikijs/transformers";
+import { transformerFileName } from "./src/utils/transformers/fileName";
+import { rehypeTableWrapper } from "./src/utils/rehypeTableWrapper";
+import {
+  inlineTocDeprecation,
+  rehypeInlineToc,
+} from "./src/utils/rehypeInlineToc";
 import rehypeMermaid from "rehype-mermaid";
-import rehypeShikiji from "rehype-shikiji";
+import config from "./astro-paper.config";
+import redirects from "./redirects";
 
-// https://astro.build/config
 export default defineConfig({
-  site: SITE.website,
+  site: config.site.url,
   integrations: [
+    mdx(),
     sitemap({
-      filter: page => SITE.showArchives || !page.endsWith("/archives"),
+      filter: page =>
+        config.features?.showArchives !== false || !/\/archives\/?$/.test(page),
     }),
-    react(),
+    inlineTocDeprecation(),
   ],
-  markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
-    syntaxHighlight: false,
-    rehypePlugins: [
-      [
-        rehypeMermaid,
-        { colorScheme: "light", dark: true, strategy: "img-svg" },
-      ],
-      [rehypeShikiji, { themes: { light: "min-light", dark: "night-owl" } }],
-    ],
-    shikiConfig: {
-      // For more themes, visit https://shiki.style/themes
-      themes: { light: "min-light", dark: "night-owl" },
-      wrap: true,
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: false,
     },
   },
+  markdown: {
+    // Deprecated: the theme no longer uses remark-toc or remark-collapse. They
+    // stay in package.json so a customised config importing them still builds,
+    // and are removed in v8.
+    processor: unified({
+      rehypePlugins: [
+        // Render ```mermaid blocks to light/dark SVG images at build time
+        [
+          rehypeMermaid,
+          { colorScheme: "light", dark: true, strategy: "img-svg" },
+        ],
+        rehypeHeadingIds,
+        rehypeInlineToc,
+        rehypeCallouts,
+        rehypeTableWrapper,
+      ],
+    }),
+    // Leave mermaid blocks for rehype-mermaid instead of highlighting them
+    syntaxHighlight: { type: "shiki", excludeLangs: ["mermaid", "math"] },
+    shikiConfig: {
+      themes: { light: "min-light", dark: "night-owl" },
+      defaultColor: false,
+      wrap: false,
+      transformers: [
+        transformerFileName({ style: "v2", hideDot: false }),
+        transformerNotationHighlight(),
+        transformerNotationWordHighlight(),
+        transformerNotationDiff({ matchAlgorithm: "v3" }),
+      ],
+    },
+  },
+  redirects,
   vite: {
     plugins: [tailwindcss()],
-    optimizeDeps: {
-      exclude: ["@resvg/resvg-js"],
+  },
+  fonts: [
+    {
+      name: "Google Sans Code",
+      cssVariable: "--font-google-sans-code",
+      provider: fontProviders.google(),
+      fallbacks: ["monospace"],
+      weights: [300, 400, 500, 600, 700],
+      styles: ["normal", "italic"],
+      formats: ["woff", "ttf"],
+    },
+  ],
+  env: {
+    schema: {
+      PUBLIC_GOOGLE_SITE_VERIFICATION: envField.string({
+        access: "public",
+        context: "client",
+        optional: true,
+      }),
     },
   },
-  image: {
-    // Used for all Markdown images; not configurable per-image
-    // Used for all `<Image />` and `<Picture />` components unless overridden with a prop
-    experimentalLayout: "responsive",
-  },
   experimental: {
-    svg: true,
-    responsiveImages: true,
-    preserveScriptOrder: true,
-  },
-  redirects: {
-    "/quick-tips/git-remove-files-based-on-gitignore":
-      "/posts/git-remove-files-based-on-gitignore",
-    "/quick-tips/rn-tip-lazy-viewmanagers-in-android":
-      "/posts/rn-tip-lazy-viewmanagers-in-android",
-    "/android-fast-networking-with-kotlin-coroutines":
-      "/posts/android-fast-networking-with-kotlin-coroutines",
-    "/how-i-became-a-software-engineer-without-a-degree":
-      "/posts/how-i-became-a-software-engineer-without-a-degree?utm_source=yogeshpaliyal-old&utm_medium=redirect_url&utm_campaign=redirect_url",
-    "/automating-indus-app-store-uploads-with-github-actions":
-      "/posts/automating-indus-app-store-uploads-with-github-actions?utm_source=yogeshpaliyal-old&utm_medium=redirect_url&utm_campaign=redirect_url",
-    "/cracking-the-code-a-journey-through-keypass-app-crashes-and-solutions":
-      "https://yogeshpaliyal.hashnode.dev/cracking-the-code-a-journey-through-keypass-app-crashes-and-solutions",
-    "/scope-storage-in-android-a-guide-to-securing-your-app-and-supporting-all-api-versions":
-      "https://yogeshpaliyal.hashnode.dev/scope-storage-in-android-a-guide-to-securing-your-app-and-supporting-all-api-versions",
-    "/types-of-recursion":
-      "https://yogeshpaliyal.hashnode.dev/types-of-recursion",
-    "/guide-to-android-data-binding":
-      "/posts/guide-to-android-data-binding?utm_source=yogeshpaliyal-old&utm_medium=redirect_url&utm_campaign=redirect_url",
-    "/universal-recycler-adapter-for-90-of-your-needs":
-      "https://yogeshpaliyal.hashnode.dev/universal-recycler-adapter-for-90-of-your-needs",
-    "/android-spannable-textview":
-      "https://yogeshpaliyal.hashnode.dev/android-spannable-textview",
-    "/getting-started-with-android-navigation-component":
-      "https://yogeshpaliyal.hashnode.dev/getting-started-with-android-navigation-component",
-    "/kotlin-coroutines-or-qa":
-      "https://yogeshpaliyal.hashnode.dev/kotlin-coroutines-or-qa",
-    "/how-to-create-android-universal-recycler-view-adapter-with-mvvm-and-data-binding":
-      "https://yogeshpaliyal.hashnode.dev/how-to-create-android-universal-recycler-view-adapter-with-mvvm-and-data-binding",
-    "/android-material-design-tabs-tab-layout-with-swipe-or-basic":
-      "https://yogeshpaliyal.hashnode.dev/android-material-design-tabs-tab-layout-with-swipe-or-basic",
-    "/android-bottom-navigation-with-cut-out-design":
-      "https://yogeshpaliyal.hashnode.dev/android-bottom-navigation-with-cut-out-design",
-    "/firebase-messaging-with-image-in-android-or-android-kotlin-push-notification":
-      "/posts/firebase-messaging-with-image-in-android-or-android-kotlin-push-notification",
-    "/keypass-password-manager":
-      "https://yogeshpaliyal.hashnode.dev/keypass-password-manager",
-    "/keypass-privacy-policy":
-      "https://yogeshpaliyal.hashnode.dev/keypass-privacy-policy",
-    "/archive":
-      "/archives?utm_source=yogeshpaliyal-old&utm_medium=redirect_url&utm_campaign=redirect_url",
-    "/tag/android-app-development":
-      "https://yogeshpaliyal.hashnode.dev/tag/android-app-development",
-    "/tag/android-development":
-      "https://yogeshpaliyal.hashnode.dev/tag/android-development",
-    "/tag/data-structures":
-      "https://yogeshpaliyal.hashnode.dev/tag/data-structures",
-    "/tag/debugging": "https://yogeshpaliyal.hashnode.dev/tag/debugging",
-    "/tag/android":
-      "/tags/android?utm_source=yogeshpaliyal-old&utm_medium=redirect_url&utm_campaign=redirect_url",
-    "/tag/beginners": "https://yogeshpaliyal.hashnode.dev/tag/beginners",
-    "/tag/recursion": "https://yogeshpaliyal.hashnode.dev/tag/recursion",
-    "/tag/opensource-inactive":
-      "https://yogeshpaliyal.hashnode.dev/tag/opensource-inactive",
-    "https://yogeshpaliyal.hashnode.dev/tag/basics":
-      "https://yogeshpaliyal.hashnode.dev/tag/basics",
-    "https://yogeshpaliyal.hashnode.dev/tag/software-engineer":
-      "/tags/software-engineer?utm_source=yogeshpaliyal-old&utm_medium=redirect_url&utm_campaign=redirect_url",
-    "https://yogeshpaliyal.hashnode.dev/tag/keypass":
-      "https://yogeshpaliyal.hashnode.dev/tag/keypass",
+    svgOptimizer: svgoOptimizer(),
   },
 });

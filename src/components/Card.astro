@@ -1,54 +1,31 @@
 ---
-import { slugifyStr } from "@/utils/slugify";
 import type { CollectionEntry } from "astro:content";
-import { getPath } from "@/utils/getPath";
+import { getPostUrl } from "@/utils/getPostPaths";
+import { toTransitionName } from "@/utils/toTransitionName";
 import Datetime from "./Datetime.astro";
 
-export interface Props extends CollectionEntry<"blog"> {
+type Props = {
   variant?: "h2" | "h3";
-}
+} & CollectionEntry<"posts">;
 
-const { variant = "h2", data, id, filePath } = Astro.props;
+const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 
-const { title, description, pubDatetime, modDatetime, timezone } = data;
-// Only project entries carry an icon
-const icon = "icon" in data ? (data.icon as string | undefined) : undefined;
-
-const headerProps = {
-  style: { viewTransitionName: slugifyStr(title) },
-  class: "text-lg font-medium decoration-dashed hover:underline",
-};
+const { title, description, ...props } = data;
 ---
 
-<li class:list={["my-6", { "flex items-start gap-4": icon }]}>
-  {
-    icon && (
-      <a href={data.url ?? getPath(id, filePath)} tabindex="-1" aria-hidden="true" class="shrink-0">
-        <img
-          src={icon}
-          alt=""
-          width="56"
-          height="56"
-          loading="lazy"
-          class="h-14 w-14 rounded-2xl"
-        />
-      </a>
-    )
-  }
-  <div>
-    <a
-      href={data.url ?? getPath(id, filePath)}
-      class="text-accent inline-block text-lg font-medium decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
-    >
-      {
-        variant === "h2" ? (
-          <h2 {...headerProps}>{title}</h2>
-        ) : (
-          <h3 {...headerProps}>{title}</h3>
-        )
-      }
-    </a>
-    <Datetime {pubDatetime} {modDatetime} {timezone} />
-    <p>{description}</p>
-  </div>
+<li class="my-6">
+  <a
+    href={getPostUrl(id, filePath, Astro.currentLocale)}
+    class:list={[
+      "text-accent inline-block text-lg font-medium",
+      "decoration-dashed underline-offset-4 hover:underline",
+      "focus-visible:no-underline focus-visible:underline-offset-0",
+    ]}
+  >
+    <Heading transition:name={toTransitionName(id)}>
+      {title}
+    </Heading>
+  </a>
+  <Datetime {...props} />
+  <p>{description}</p>
 </li>

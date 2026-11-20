@@ -1,37 +1,42 @@
-import type { GiscusProps } from "@giscus/react";
+/**
+ * Internal resolved configuration used throughout the codebase.
+ *
+ * Prefer editing `astro-paper.config.ts` instead of this file. This module exists to
+ * apply defaults and expose a fully-resolved config shape (`ResolvedAstroPaperConfig`).
+ */
+import userConfig from "@/astro-paper.config";
+import type { ResolvedAstroPaperConfig } from "./types/config";
+import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 
-export const SITE = {
-  website: "https://yogeshpaliyal.com/", // replace this with your deployed domain
-  author: "Yogesh Paliyal",
-  profile: "https://yogeshpaliyal.com/",
-  desc: "Exploring the world of technology without a degree and spreading the love for open-source development.",
-  title: "Yogesh Paliyal",
-  lightAndDarkMode: true,
-  postPerIndex: 4,
-  postPerPage: 5,
-  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  showArchives: true,
-  showBackButton: true, // show back button in post detail
-  showProjects: true,
-  editPost: {
-    enabled: false,
-    text: "Suggest Changes",
-    url: "https://github.com/yogeshpaliyal/yogeshpaliyal.com/edit/main/",
+const DEFAULT_OG_IMAGE = "default-og.jpg";
+
+const config: ResolvedAstroPaperConfig = {
+  site: {
+    ...userConfig.site,
+    ogImage: userConfig.site.ogImage ?? DEFAULT_OG_IMAGE,
+    lang: userConfig.site.lang ?? "en",
+    timezone: userConfig.site.timezone ?? "UTC",
+    dir: userConfig.site.dir ?? "ltr",
+    googleVerification:
+      userConfig.site.googleVerification || PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
-  dynamicOgImage: true,
-  lang: "en", // html lang code. Set this empty and default will be "en"
-  timezone: "Africa/Abidjan", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-} as const;
-
-export const GISCUS: GiscusProps = {
-  repo: "yogeshpaliyal/yogeshpaliyal.com",
-  repoId: "R_kgDONQlO3w",
-  category: "Comments",
-  categoryId: "DIC_kwDONQlO384CkWBb",
-  mapping: "pathname",
-  reactionsEnabled: "1",
-  emitMetadata: "0",
-  inputPosition: "bottom",
-  lang: "en",
-  loading: "lazy",
+  posts: {
+    perPage: userConfig.posts?.perPage ?? 4,
+    perIndex: userConfig.posts?.perIndex ?? 4,
+    // Deprecated and unused. Not read from userConfig, so builds don't warn about it.
+    scheduledPostMargin: 15 * 60 * 1000,
+  },
+  features: {
+    lightAndDarkMode: userConfig.features?.lightAndDarkMode ?? true,
+    dynamicOgImage: userConfig.features?.dynamicOgImage ?? true,
+    showArchives: userConfig.features?.showArchives ?? true,
+    showBackButton: userConfig.features?.showBackButton ?? true,
+    editPost: userConfig.features?.editPost ?? { enabled: false },
+    search: userConfig.features?.search ?? "pagefind",
+    toc: userConfig.features?.toc ?? true,
+  },
+  socials: userConfig.socials ?? [],
+  shareLinks: userConfig.shareLinks ?? [],
 };
+
+export default config;

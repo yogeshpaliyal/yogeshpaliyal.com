@@ -4,8 +4,8 @@ import { getCollection, getEntry, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import BackButton from "@/components/BackButton.astro";
-import { SITE } from "@/config";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import config from "@/config";
 import { playStoreUrl } from "@/utils/appLinks";
 
 export const getStaticPaths = (async () => {
@@ -25,7 +25,8 @@ const accentVars = [
   .filter(Boolean)
   .join(";");
 
-const pageUrl = new URL(`/projects/${app.id}`, SITE.website).href;
+const site = config.site;
+const pageUrl = new URL(`/projects/${app.id}`, site.url).href;
 const playUrl = d.playStoreId ? playStoreUrl(d.playStoreId, app.id) : undefined;
 const ogImage = d.ogImage ?? d.heroImage ?? d.screenshots[0]?.src ?? d.icon;
 
@@ -38,13 +39,15 @@ const structuredData = [
     url: pageUrl,
     applicationCategory: d.category,
     operatingSystem: "Android",
-    ...(d.icon && { image: new URL(d.icon, SITE.website).href }),
+    ...(d.icon && { image: new URL(d.icon, site.url).href }),
     ...(d.screenshots.length && {
-      screenshot: d.screenshots.map(s => new URL(s.src, SITE.website).href),
+      screenshot: d.screenshots.map(s => new URL(s.src, site.url).href),
     }),
-    ...((playUrl || d.downloadUrl) && { downloadUrl: playUrl ?? d.downloadUrl }),
+    ...((playUrl || d.downloadUrl) && {
+      downloadUrl: playUrl ?? d.downloadUrl,
+    }),
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    author: { "@type": "Person", name: SITE.author, url: SITE.profile },
+    author: { "@type": "Person", name: site.author, url: site.profile },
     sameAs: [d.githubUrl],
   },
   ...(d.faq.length
@@ -61,21 +64,26 @@ const structuredData = [
       ]
     : []),
 ];
+const structuredDataJson = JSON.stringify(structuredData).replace(
+  /</g,
+  "\\u003c"
+);
 ---
 
-<Layout
-  title={d.title}
-  description={d.description}
-  ogImage={ogImage}
-  pubDatetime={d.pubDatetime}
-  modDatetime={d.modDatetime}
-  structuredData={structuredData}
->
+<Layout title={d.title} description={d.description} ogImage={ogImage}>
+  <Fragment slot="head">
+    <meta name="keywords" content={d.keywords.join(", ")} />
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={structuredDataJson}
+    />
+  </Fragment>
   <Header />
-  <BackButton />
+  <Breadcrumb />
   <main
     id="main-content"
-    class="app-page mx-auto w-full max-w-3xl px-4 pb-12"
+    class="app-layout app-page pb-12"
     style={accentVars}
     data-pagefind-body
   >
@@ -97,7 +105,9 @@ const structuredData = [
           )
         }
         <div>
-          <p class="text-sm tracking-widest uppercase opacity-70">Android app</p>
+          <p class="text-sm tracking-widest uppercase opacity-70">
+            Android app
+          </p>
           <h1 class="text-2xl font-bold sm:text-3xl">{d.title}</h1>
         </div>
       </div>
@@ -193,14 +203,19 @@ const structuredData = [
     {
       d.features.length > 0 && (
         <section class="mt-10 px-0" aria-labelledby="features-heading">
-          <h2 id="features-heading" class="text-accent text-xl font-bold sm:text-2xl">
+          <h2
+            id="features-heading"
+            class="text-accent text-xl font-bold sm:text-2xl"
+          >
             Features
           </h2>
           <ul class="mt-4 grid gap-3 sm:grid-cols-2">
             {d.features.map(f => (
               <li class="rounded-2xl border p-4">
                 <div class="flex items-center gap-2">
-                  <span class="text-2xl" aria-hidden="true">{f.icon}</span>
+                  <span class="text-2xl" aria-hidden="true">
+                    {f.icon}
+                  </span>
                   <h3 class="font-semibold">{f.title}</h3>
                 </div>
                 <p class="mt-1 text-sm opacity-80">{f.text}</p>
@@ -211,7 +226,7 @@ const structuredData = [
       )
     }
 
-    <article class="prose mx-auto mt-10 max-w-3xl">
+    <article class="app-prose mt-10 max-w-none">
       <Content />
 
       {
@@ -236,7 +251,7 @@ const structuredData = [
       otherApps.length > 0 && (
         <section class="mt-12 px-0" aria-labelledby="more-apps-heading">
           <h2 id="more-apps-heading" class="text-xl font-bold">
-            More apps by {SITE.author}
+            More apps by {site.author}
           </h2>
           <ul class="mt-4 grid gap-3 sm:grid-cols-2">
             {otherApps.map(a => (
@@ -257,7 +272,9 @@ const structuredData = [
                   )}
                   <span>
                     <span class="block font-semibold">{a.data.name}</span>
-                    <span class="block text-sm opacity-75">{a.data.tagline}</span>
+                    <span class="block text-sm opacity-75">
+                      {a.data.tagline}
+                    </span>
                   </span>
                 </a>
               </li>
@@ -268,10 +285,26 @@ const structuredData = [
     }
 
     <hr class="my-8 border-dashed" />
-    <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm" aria-label={`${d.name} links`}>
-      {hasPrivacy && <a class="hover:text-accent underline" href={`/projects/${app.id}/privacy`}>Privacy policy</a>}
-      <a class="hover:text-accent underline" href={`${d.githubUrl}/releases`}>Changelog</a>
-      <a class="hover:text-accent underline" href={`${d.githubUrl}/issues`}>Report an issue</a>
+    <nav
+      class="flex flex-wrap gap-x-6 gap-y-2 text-sm"
+      aria-label={`${d.name} links`}
+    >
+      {
+        hasPrivacy && (
+          <a
+            class="hover:text-accent underline"
+            href={`/projects/${app.id}/privacy`}
+          >
+            Privacy policy
+          </a>
+        )
+      }
+      <a class="hover:text-accent underline" href={`${d.githubUrl}/releases`}
+        >Changelog</a
+      >
+      <a class="hover:text-accent underline" href={`${d.githubUrl}/issues`}
+        >Report an issue</a
+      >
       <a class="hover:text-accent underline" href="/projects">All projects</a>
     </nav>
   </main>
