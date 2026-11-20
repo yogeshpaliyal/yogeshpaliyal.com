@@ -14,7 +14,7 @@ const posts = defineCollection({
       modDatetime: z.date().optional().nullable(),
       title: z.string(),
       featured: z.boolean().optional(),
-      // "unlisted": page is built and reachable by link, but left out of lists
+      // "unlisted" is treated like a draft (kept for older posts)
       draft: z.literal("unlisted").or(z.boolean()).optional(),
       tags: z.array(z.string()).default(["others"]),
       ogImage: image().or(z.string()).optional(),

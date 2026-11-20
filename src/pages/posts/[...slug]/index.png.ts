@@ -14,11 +14,7 @@ export async function getStaticPaths() {
   }
 
   const posts = await getCollection("posts").then(p =>
-    p.filter(
-      post =>
-        (postFilter(post) || post.data.draft === "unlisted") &&
-        !post.data.ogImage
-    )
+    p.filter(post => postFilter(post) && !post.data.ogImage)
   );
 
   return posts.map(post => ({

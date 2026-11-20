@@ -39,6 +39,13 @@ jobs:
         run: pnpm exec playwright install --with-deps chromium
       - name: Build
         run: pnpm run build
+      - name: Screenshots
+        run: |
+          pnpm astro preview --port 4321 &
+          sleep 5
+          node .upgrade/screens.mjs
+          git add .upgrade/screens
+          git commit -m "chore: upgrade screenshots [upgrade-check]" && git push || true
       - name: Route list
         if: always()
         run: (cd dist && find . -name '*.html' -o -name '*.xml' -o -name '*.png' | sort) > routes.txt || true
