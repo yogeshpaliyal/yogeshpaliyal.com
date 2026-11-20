@@ -14,16 +14,18 @@ category: CommunicationApplication
 downloadUrl: https://github.com/yogeshpaliyal/SendAhead/releases/tag/latest-master
 downloadLabel: Download latest APK
 githubUrl: https://github.com/yogeshpaliyal/SendAhead
+screenshotFrame: false
 screenshots:
-  - src: /projects/sendahead/compose.jpg
-    alt: New message screen with a WhatsApp group, the message, an attachment button and a time picker
-    caption: Write it now
-  - src: /projects/sendahead/home.jpg
-    alt: Scheduled list showing two WhatsApp messages waiting to be sent
-    caption: See what's waiting
-  - src: /projects/sendahead/unlock.jpg
-    alt: Send while locked setting with an encrypted PIN
-    caption: Sends even when locked
+  - src: /projects/sendahead/screen-1.jpg
+    alt: "Write it now, send it later: scheduled WhatsApp messages list"
+  - src: /projects/sendahead/screen-2.jpg
+    alt: "Pick a date and time for a WhatsApp message"
+  - src: /projects/sendahead/screen-3.jpg
+    alt: "Send to WhatsApp contacts and groups, with photos and files"
+  - src: /projects/sendahead/screen-4.jpg
+    alt: "SendAhead types your PIN to send even when the phone is locked"
+  - src: /projects/sendahead/screen-5.jpg
+    alt: "No internet permission, no account, no ads, open source"
 disclaimer: "SendAhead is an independent project. It is not affiliated with, endorsed by or sponsored by WhatsApp or Meta. WhatsApp is a trademark of WhatsApp LLC."
 faq:
   - q: Can I schedule a WhatsApp message on Android?

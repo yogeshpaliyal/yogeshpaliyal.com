@@ -71,6 +71,8 @@ const apps = defineCollection({
     screenshots: z
       .array(z.object({ src: z.string(), alt: z.string(), caption: z.string().optional() }))
       .default([]),
+    // false for designed store graphics that already include a device frame
+    screenshotFrame: z.boolean().default(true),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
     // Branding: accent for light theme, accentDark for dark theme, heroBg for the hero panel
     accent: z.string().optional(),

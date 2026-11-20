@@ -160,14 +160,23 @@ const structuredData = [
           <div class="-mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-3">
             {d.screenshots.map(s => (
               <figure class="w-44 shrink-0 snap-start sm:w-52">
-                <div class="rounded-[2rem] bg-neutral-900 p-2 shadow-lg ring-1 ring-black/10">
+                {d.screenshotFrame ? (
+                  <div class="rounded-[2rem] bg-neutral-900 p-2 shadow-lg ring-1 ring-black/10">
+                    <img
+                      src={s.src}
+                      alt={s.alt}
+                      loading="lazy"
+                      class="w-full rounded-[1.5rem]"
+                    />
+                  </div>
+                ) : (
                   <img
                     src={s.src}
                     alt={s.alt}
                     loading="lazy"
-                    class="w-full rounded-[1.5rem]"
+                    class="w-full rounded-2xl shadow-lg ring-1 ring-black/10"
                   />
-                </div>
+                )}
                 {s.caption && (
                   <figcaption class="mt-3 text-center text-sm opacity-75">
                     {s.caption}

@@ -14,19 +14,18 @@ category: LifestyleApplication
 downloadUrl: https://github.com/yogeshpaliyal/Gapwise/releases/tag/latest-master
 downloadLabel: Download latest APK
 githubUrl: https://github.com/yogeshpaliyal/Gapwise
+screenshotFrame: false
 screenshots:
-  - src: /projects/gapwise/home.jpg
-    alt: Gapwise home screen with tiles showing days since watering plants, changing towels, a beard trim and cleaning the fridge
-    caption: Everything at a glance
-  - src: /projects/gapwise/edit.jpg
-    alt: New event screen with an icon picker, colours and categories
-    caption: Track anything
-  - src: /projects/gapwise/widgets.jpg
-    alt: Gapwise home-screen widgets showing a haircut due now and other events in days and months
-    caption: Home-screen widgets
-  - src: /projects/gapwise/sort.jpg
-    alt: Sort and layout options with Due, Recent, A–Z and Mine, plus cards or list view
-    caption: Sort your way
+  - src: /projects/gapwise/screen-1.jpg
+    alt: "Remember the last time: do it, tap it, relax. No streaks, no guilt."
+  - src: /projects/gapwise/screen-2.jpg
+    alt: "Gapwise home-screen widgets: one tap logs it"
+  - src: /projects/gapwise/screen-3.jpg
+    alt: "Icon shapes show what's due at a glance"
+  - src: /projects/gapwise/screen-4.jpg
+    alt: "Track anything from haircuts to oil changes, with any emoji and colour"
+  - src: /projects/gapwise/screen-5.jpg
+    alt: "No account, no ads, Google Drive backup and open source"
 faq:
   - q: Is there a SinceWhen app for Android?
     a: SinceWhen is iOS-only. Gapwise is an Android app built around the same idea of tracking the time since you last did something. It adds learned rhythms, gentle nudges and a home-screen widget.
