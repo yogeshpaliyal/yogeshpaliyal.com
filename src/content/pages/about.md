@@ -4,7 +4,7 @@ description: "About Yogesh Paliyal, a software engineer from Jodhpur working on 
 ---
 
 I am Yogesh Paliyal a software engineer from Jodhpur, Rajasthan, India.
-Currently working at [Flipkart](https://flipkart.com/) as SDE-II.
+Currently working at [Flipkart](https://flipkart.com/) as SDE-3.
 
 ![about-cover](../../assets/images/about-cover.png)
 
