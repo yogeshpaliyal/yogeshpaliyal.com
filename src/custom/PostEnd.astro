@@ -1,0 +1,68 @@
+---
+// Rendered on each post page, after the share links and before the
+// previous/next links. Add comments, a newsletter form or an author bio
+// here; use `post` to skip some posts. This file is yours: AstroPaper
+// never changes it after release.
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  post: CollectionEntry<"posts">;
+};
+---
+
+<!-- Giscus comments (GitHub Discussions) -->
+<section class="mx-auto mt-12 w-full">
+  <div id="giscus-container"></div>
+</section>
+
+<script is:inline>
+  (function () {
+    const giscusTheme = () =>
+      document.documentElement.getAttribute("data-theme") === "dark"
+        ? "noborder_gray"
+        : "light";
+
+    function initGiscus() {
+      const container = document.getElementById("giscus-container");
+      if (!container || container.querySelector("script, iframe")) return;
+
+      const script = document.createElement("script");
+      const attrs = {
+        src: "https://giscus.app/client.js",
+        "data-repo": "yogeshpaliyal/yogeshpaliyal.com",
+        "data-repo-id": "R_kgDONQlO3w",
+        "data-category": "Comments",
+        "data-category-id": "DIC_kwDONQlO384CkWBb",
+        "data-mapping": "pathname",
+        "data-strict": "0",
+        "data-reactions-enabled": "1",
+        "data-emit-metadata": "0",
+        "data-input-position": "bottom",
+        "data-lang": "en",
+        "data-loading": "lazy",
+        "data-theme": giscusTheme(),
+        crossorigin: "anonymous",
+      };
+      Object.entries(attrs).forEach(([k, v]) => script.setAttribute(k, v));
+      script.async = true;
+      container.appendChild(script);
+    }
+
+    initGiscus();
+
+    // Register once: re-init after client-side navigation, follow theme changes
+    if (window.__giscusBound) return;
+    window.__giscusBound = true;
+    document.addEventListener("astro:page-load", initGiscus);
+    new MutationObserver(() => {
+      const iframe = document.querySelector("iframe.giscus-frame");
+      iframe?.contentWindow?.postMessage(
+        { giscus: { setConfig: { theme: giscusTheme() } } },
+        "https://giscus.app"
+      );
+    }).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  })();
+</script>

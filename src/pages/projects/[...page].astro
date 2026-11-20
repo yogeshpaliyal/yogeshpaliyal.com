@@ -1,28 +1,37 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
-import Main from "@/layouts/Main.astro";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
 import Footer from "@/components/Footer.astro";
-import Card from "@/components/Card.astro";
 import Pagination from "@/components/Pagination.astro";
-import { getSortedProjects } from "@/utils/getSortedPosts";
-import { SITE } from "@/config";
+import { getSortedProjects } from "@/utils/getSortedProjects";
+import config from "@/config";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const posts = await getCollection("projects", ({ data }) => !data.draft);
-  return paginate(getSortedProjects(posts), { pageSize: SITE.postPerPage });
+  const projects = await getCollection("projects");
+  return paginate(getSortedProjects(projects), {
+    pageSize: config.posts.perPage,
+  });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
 ---
 
-<Layout title={`Projects | ${SITE.title}`}>
+<Layout
+  title={`Projects | ${config.site.title}`}
+  description="Open-source Android apps and developer tools by Yogesh Paliyal."
+>
   <Header />
+
+  <Breadcrumb />
+
   <Main pageTitle="Projects" pageDesc="A collection of my personal projects.">
     <ul>
-      {page.data.map(data => <Card {...data} />)}
+      {page.data.map(project => <ProjectCard {...project} />)}
     </ul>
   </Main>
 

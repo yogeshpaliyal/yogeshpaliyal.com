@@ -7,8 +7,14 @@
 !/.github
 !tsconfig.json
 !astro.config.ts
-!.prettierrc.mjs
 !package.json
 !.prettierrc
 !eslint.config.js
 !README.md
+!.vscode
+
+# Ignore MDX files
+*.mdx
+# Leave post/page content as written
+src/content/**/*.md
+src/data/**/*.md

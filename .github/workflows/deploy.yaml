@@ -4,6 +4,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+  workflow_dispatch:
 
 # Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
@@ -20,11 +21,7 @@ jobs:
   build:
     name: Code standards & build
     runs-on: ubuntu-latest
-    timeout-minutes: 3
-
-    strategy:
-      matrix:
-        node-version: [18.x]
+    timeout-minutes: 15
 
     steps:
       - name: "☁️ Checkout repository"
@@ -33,25 +30,25 @@ jobs:
       - name: "📦 Install pnpm"
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: "11.3.0"
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "24"
           cache: "pnpm"
 
       - name: "📦 Install dependencies"
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      - name: "📦 Install dependencies"
-        run: npx playwright install
+      - name: "🎭 Install Chromium for Mermaid diagrams"
+        run: pnpm exec playwright install --with-deps chromium
 
       - name: "🚀 Build the project"
         run: pnpm run build
 
       - name: "Setup Pages"
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: "Upload artifact"
         uses: actions/upload-pages-artifact@v3

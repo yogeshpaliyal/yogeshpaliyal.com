@@ -1,0 +1,52 @@
+# Temporary: builds the upgrade branch, regenerates pnpm-lock.yaml and
+# formats code, then commits those back. Delete before merging to main.
+name: Upgrade check
+
+on:
+  push:
+    branches: ["upgrade-astro-7"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: "11.3.0"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install (updates lockfile)
+        run: pnpm install --no-frozen-lockfile
+      - name: Format
+        run: pnpm run format
+      - name: Commit lockfile and formatting
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || (git commit -m "chore: update lockfile and format [upgrade-check]" && git push)
+      - name: Lint
+        run: pnpm run lint
+        continue-on-error: true
+      - name: Install Chromium for Mermaid
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Build
+        run: pnpm run build
+      - name: Route list
+        if: always()
+        run: (cd dist && find . -name '*.html' -o -name '*.xml' -o -name '*.png' | sort) > routes.txt || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: site
+          path: |
+            dist
+            routes.txt
+          retention-days: 3

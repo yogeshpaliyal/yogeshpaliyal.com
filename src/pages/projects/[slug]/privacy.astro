@@ -4,8 +4,8 @@ import { getCollection, getEntry, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import BackButton from "@/components/BackButton.astro";
-import { SITE } from "@/config";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import config from "@/config";
 
 export const getStaticPaths = (async () => {
   const policies = await getCollection("appPrivacy");
@@ -24,13 +24,13 @@ const effective = policy.data.effectiveDate.toLocaleDateString("en-GB", {
 ---
 
 <Layout
-  title={`${name} Privacy Policy | ${SITE.title}`}
+  title={`${name} Privacy Policy | ${config.site.title}`}
   description={`Privacy policy for the ${name} Android app.`}
 >
   <Header />
-  <BackButton />
-  <main id="main-content" class="mx-auto w-full max-w-3xl px-4 pb-12">
-    <article class="prose mx-auto mt-4 max-w-3xl">
+  <Breadcrumb />
+  <main id="main-content" class="app-layout pb-12">
+    <article class="app-prose mt-4 max-w-none">
       <h1>{name} privacy policy</h1>
       <p><em>Effective date: {effective}</em></p>
       <Content />
