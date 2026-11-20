@@ -20,11 +20,11 @@
         "priority": 2,
         "id": "sendahead",
         "icon": "/projects/sendahead/icon.png",
-        "title": "Sendahead – WhatsApp Message Scheduler",
+        "title": "SendAhead – WhatsApp Message Scheduler",
         "description": "Schedule WhatsApp messages with attachments on Android. Fully offline and open source.",
         "projectType": "github",
         "username": "yogeshpaliyal",
-        "repoName": "Whatsapp-scheduler",
+        "repoName": "SendAhead",
         "url": "/projects/sendahead",
         "tags": [
             "android"
