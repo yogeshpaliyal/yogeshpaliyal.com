@@ -43,7 +43,9 @@ const structuredData = [
     ...(d.screenshots.length && {
       screenshot: d.screenshots.map(s => new URL(s.src, site.url).href),
     }),
-    ...((playUrl || d.downloadUrl) && { downloadUrl: playUrl ?? d.downloadUrl }),
+    ...((playUrl || d.downloadUrl) && {
+      downloadUrl: playUrl ?? d.downloadUrl,
+    }),
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     author: { "@type": "Person", name: site.author, url: site.profile },
     sameAs: [d.githubUrl],
@@ -103,7 +105,9 @@ const structuredDataJson = JSON.stringify(structuredData).replace(
           )
         }
         <div>
-          <p class="text-sm tracking-widest uppercase opacity-70">Android app</p>
+          <p class="text-sm tracking-widest uppercase opacity-70">
+            Android app
+          </p>
           <h1 class="text-2xl font-bold sm:text-3xl">{d.title}</h1>
         </div>
       </div>
@@ -199,14 +203,19 @@ const structuredDataJson = JSON.stringify(structuredData).replace(
     {
       d.features.length > 0 && (
         <section class="mt-10 px-0" aria-labelledby="features-heading">
-          <h2 id="features-heading" class="text-accent text-xl font-bold sm:text-2xl">
+          <h2
+            id="features-heading"
+            class="text-accent text-xl font-bold sm:text-2xl"
+          >
             Features
           </h2>
           <ul class="mt-4 grid gap-3 sm:grid-cols-2">
             {d.features.map(f => (
               <li class="rounded-2xl border p-4">
                 <div class="flex items-center gap-2">
-                  <span class="text-2xl" aria-hidden="true">{f.icon}</span>
+                  <span class="text-2xl" aria-hidden="true">
+                    {f.icon}
+                  </span>
                   <h3 class="font-semibold">{f.title}</h3>
                 </div>
                 <p class="mt-1 text-sm opacity-80">{f.text}</p>
@@ -263,7 +272,9 @@ const structuredDataJson = JSON.stringify(structuredData).replace(
                   )}
                   <span>
                     <span class="block font-semibold">{a.data.name}</span>
-                    <span class="block text-sm opacity-75">{a.data.tagline}</span>
+                    <span class="block text-sm opacity-75">
+                      {a.data.tagline}
+                    </span>
                   </span>
                 </a>
               </li>
@@ -274,10 +285,26 @@ const structuredDataJson = JSON.stringify(structuredData).replace(
     }
 
     <hr class="my-8 border-dashed" />
-    <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm" aria-label={`${d.name} links`}>
-      {hasPrivacy && <a class="hover:text-accent underline" href={`/projects/${app.id}/privacy`}>Privacy policy</a>}
-      <a class="hover:text-accent underline" href={`${d.githubUrl}/releases`}>Changelog</a>
-      <a class="hover:text-accent underline" href={`${d.githubUrl}/issues`}>Report an issue</a>
+    <nav
+      class="flex flex-wrap gap-x-6 gap-y-2 text-sm"
+      aria-label={`${d.name} links`}
+    >
+      {
+        hasPrivacy && (
+          <a
+            class="hover:text-accent underline"
+            href={`/projects/${app.id}/privacy`}
+          >
+            Privacy policy
+          </a>
+        )
+      }
+      <a class="hover:text-accent underline" href={`${d.githubUrl}/releases`}
+        >Changelog</a
+      >
+      <a class="hover:text-accent underline" href={`${d.githubUrl}/issues`}
+        >Report an issue</a
+      >
       <a class="hover:text-accent underline" href="/projects">All projects</a>
     </nav>
   </main>

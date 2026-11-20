@@ -94,7 +94,9 @@ const apps = defineCollection({
     heroBg: z.string().default("#1c1c1c"),
     heroImage: z.string().optional(),
     features: z
-      .array(z.object({ icon: z.string(), title: z.string(), text: z.string() }))
+      .array(
+        z.object({ icon: z.string(), title: z.string(), text: z.string() })
+      )
       .default([]),
     disclaimer: z.string().optional(),
     pubDatetime: z.coerce.date(),

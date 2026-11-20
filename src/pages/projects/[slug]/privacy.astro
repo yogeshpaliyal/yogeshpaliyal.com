@@ -9,7 +9,10 @@ import config from "@/config";
 
 export const getStaticPaths = (async () => {
   const policies = await getCollection("appPrivacy");
-  return policies.map(policy => ({ params: { slug: policy.id }, props: { policy } }));
+  return policies.map(policy => ({
+    params: { slug: policy.id },
+    props: { policy },
+  }));
 }) satisfies GetStaticPaths;
 
 const { policy } = Astro.props;
@@ -37,7 +40,14 @@ const effective = policy.data.effectiveDate.toLocaleDateString("en-GB", {
       <p>
         Questions? Open an issue on
         {app ? <a href={`${app.data.githubUrl}/issues`}>GitHub</a> : "GitHub"}.
-        {app && <> Back to <a href={`/projects/${policy.id}`}>{name}</a>.</>}
+        {
+          app && (
+            <>
+              {" "}
+              Back to <a href={`/projects/${policy.id}`}>{name}</a>.
+            </>
+          )
+        }
       </p>
     </article>
   </main>

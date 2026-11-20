@@ -22,38 +22,40 @@ export async function getStaticPaths() {
   const posts = await getCollection("posts");
   const sortedPosts = getSortedPosts(posts);
 
-  return sortedPosts.map((post, index) => ({
-    params: { slug: getPostSlug(post.id, post.filePath) },
-    props: {
-      post,
-      // sortedPosts is newest-first, so "older" (prev) is a higher index
-      // and "newer" (next) is a lower index.
-      prevPost:
-        index < sortedPosts.length - 1
-          ? {
-              id: sortedPosts[index + 1].id,
-              title: sortedPosts[index + 1].data.title,
-              filePath: sortedPosts[index + 1].filePath,
-            }
-          : null,
-      nextPost:
-        index > 0
-          ? {
-              id: sortedPosts[index - 1].id,
-              title: sortedPosts[index - 1].data.title,
-              filePath: sortedPosts[index - 1].filePath,
-            }
-          : null,
-    },
-  })).concat(
-    // Unlisted posts get a page (reachable by direct link) but no prev/next
-    posts
-      .filter(post => post.data.draft === "unlisted")
-      .map(post => ({
-        params: { slug: getPostSlug(post.id, post.filePath) },
-        props: { post, prevPost: null, nextPost: null },
-      }))
-  );
+  return sortedPosts
+    .map((post, index) => ({
+      params: { slug: getPostSlug(post.id, post.filePath) },
+      props: {
+        post,
+        // sortedPosts is newest-first, so "older" (prev) is a higher index
+        // and "newer" (next) is a lower index.
+        prevPost:
+          index < sortedPosts.length - 1
+            ? {
+                id: sortedPosts[index + 1].id,
+                title: sortedPosts[index + 1].data.title,
+                filePath: sortedPosts[index + 1].filePath,
+              }
+            : null,
+        nextPost:
+          index > 0
+            ? {
+                id: sortedPosts[index - 1].id,
+                title: sortedPosts[index - 1].data.title,
+                filePath: sortedPosts[index - 1].filePath,
+              }
+            : null,
+      },
+    }))
+    .concat(
+      // Unlisted posts get a page (reachable by direct link) but no prev/next
+      posts
+        .filter(post => post.data.draft === "unlisted")
+        .map(post => ({
+          params: { slug: getPostSlug(post.id, post.filePath) },
+          props: { post, prevPost: null, nextPost: null },
+        }))
+    );
 }
 
 type AdjacentPost = {
